@@ -1,3 +1,39 @@
-title: Petrus
+# PETRUS
+>a task manager app for managing schedule plans to large projects
 
-A taskmanager app
+## DATABASE TABLES
+
+- [ ] USERS
+- [ ] LISTS
+- [ ] TASKS
+
+## FIELDS
+### USER
+
+- USERNAME
+- PASSWORD
+- COLOR
+- ROLE ? > NOT SURE IF NEEDED
+- CATEGORYS[]
+
+## CATEGORY
+- OWNER
+- COLOR
+- CATEGORY_NAME
+- STATUS: | UNCOMPLETED | COMPLETED
+- STYLE: | GEN | ADVANCED
+- LISTS[]
+ 
+### LIST FIELDS
+
+- TITLE
+- DESCRIPTION
+- CATEGORY 
+- OWNER
+- TASKS[]
+
+### TASK 
+
+- OWNER 
+- TASK_STATUS: | IMPORTANT | WAITING | CANCELED | FINISHED
+- DUE_DATE
