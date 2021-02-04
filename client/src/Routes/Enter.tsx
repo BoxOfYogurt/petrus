@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Login } from "../Components/Enter_Components/Login";
 import { Register } from "../Components/Enter_Components/Register";
-import { EnterTypes } from "../Types/EnterTypes";
 
 const InitValue = true;
 

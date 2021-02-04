@@ -1,0 +1,31 @@
+.main_nav {
+  position: fixed;
+  width: var(--navigation-width);
+  height: 100vh;
+  transition: 200ms;
+}
+.main_navigation_list {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+}
+.main_navigation_item {
+  height: var(--navigation-width) !important;
+}
+
+.main_navigation_item:last-child {
+  margin-top: auto;
+}
+
+.main_nav_link {
+  display: flex;
+  width: var(--navigation-width) !important;
+  height: var(--navigation-width) !important;
+}
+.icon_svg {
+  margin-left: calc(var(--navigation-width) / 4);
+  width: var(--svg-size) !important;
+}

@@ -3,6 +3,7 @@ import { Switch, Route, useLocation } from "react-router-dom";
 import { Navigation } from "./Components/Navigation_Components/Navigation";
 import { Dashboard } from "./Routes/Dashboard";
 import { Enter } from "./Routes/Enter";
+import "./Css/index.css";
 
 export const App = () => {
   const { pathname } = useLocation();
