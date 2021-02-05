@@ -1,5 +1,3 @@
-import { types } from "util";
-
 export type EnterTypes = {
   setRegistered: React.Dispatch<React.SetStateAction<boolean>>;
 };

@@ -1,12 +1,10 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useTheme } from "../../Store/useTheme";
+import { ListInterface } from "../../Types/ListInterface";
+import "../../Css/categories.css";
 
-interface SortedListItems {
-  id: number;
-  title: string;
-  status: boolean;
-  category: string;
-}
-const ReduceCategories = ({ items }: { items: SortedListItems[] }) => {
+const ReduceCategories = ({ items }: { items: ListInterface[] }) => {
   let categoryArray: string[] = [];
   items.forEach((item) => {
     if (categoryArray.includes(item.category, 0)) {
@@ -16,7 +14,14 @@ const ReduceCategories = ({ items }: { items: SortedListItems[] }) => {
   });
   return categoryArray;
 };
-export const Categories = ({ items }: { items: SortedListItems[] }) => {
+export const Categories = ({
+  items,
+  url,
+}: {
+  items: ListInterface[];
+  url: string;
+}) => {
+  const { Theme } = useTheme();
   const [categories, setCategories] = useState<string[]>([]);
   useEffect(() => {
     setCategories(ReduceCategories({ items }));
@@ -24,22 +29,26 @@ export const Categories = ({ items }: { items: SortedListItems[] }) => {
 
   return (
     <>
-      <nav className="sub_nav">
-        {categories.map((category, index) => {
-          return (
-            <div key={index}>
-              <ul>
-                <h2 style={{ marginLeft: 0 }}>{category}</h2>
-                {items.map((list) =>
-                  list.category === category ? (
-                    <li key={list.id}>{list.title}</li>
-                  ) : null
-                )}
-              </ul>
-            </div>
-          );
-        })}
-      </nav>
+      {categories.map((category, index) => {
+        return (
+          <ul className="category_container" key={index}>
+            <li className="category_header">
+              <h2 className="category_header_text" style={Theme.h2}>
+                {category}
+              </h2>
+            </li>
+            {items.map((list) =>
+              list.category === category ? (
+                <li key={list.id}>
+                  <Link className="list_link" to={`${url}/${list.id}`}>
+                    <p style={Theme.p}>{list.title}</p>
+                  </Link>
+                </li>
+              ) : null
+            )}
+          </ul>
+        );
+      })}
     </>
   );
 };

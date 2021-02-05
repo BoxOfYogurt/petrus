@@ -5,6 +5,7 @@
   transition: 200ms;
 }
 .main_navigation_list {
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
@@ -13,19 +14,28 @@
   list-style: none;
 }
 .main_navigation_item {
+  position: relative;
   height: var(--navigation-width) !important;
 }
 
-.main_navigation_item:last-child {
+.main_navigation_item:nth-last-child(2) {
   margin-top: auto;
 }
 
 .main_nav_link {
   display: flex;
+  justify-content: center;
   width: var(--navigation-width) !important;
   height: var(--navigation-width) !important;
 }
 .icon_svg {
-  margin-left: calc(var(--navigation-width) / 4);
   width: var(--svg-size) !important;
+}
+
+.nav_marker {
+  position: absolute;
+  left: 0 !important;
+  height: 3em;
+  width: 2px;
+  transition: 100ms;
 }

@@ -1,4 +1,5 @@
-import { useTheme, ThemeAction } from "../Store/useTheme";
+import { useTheme } from "../Store/useTheme";
+import { ThemeAction } from "../Theme/Themes";
 
 export const ThemeSwitch = () => {
   const { Theme, changeTheme } = useTheme();

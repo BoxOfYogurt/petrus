@@ -3,7 +3,8 @@
   margin: 0;
   font-size: 16px;
   --navigation-width: 3em;
-  --svg-size: calc(var(--navigation-width) / 2);
+  --category-width: 12rem;
+  --svg-size: 1em;
   --entry-widget-height: 25em !important;
   --entry-widget-width: 25em !important;
 
@@ -16,12 +17,15 @@
   --earth-yellow: #dba159ff;
   --green-sheen: #68b0abff;
 
-  --ff-1: "JetBrains Mono", monospace;
-  --ff-2: "Major Mono Display", monospace;
-  --ff-3: "Abril Fatface", cursive;
-  --ff-4: "Monofett", cursive;
-  --ff-5: "Oswald", sans-serif;
-  --ff-6: "Inter", sans-serif;
+  --ff-1: "Fira Sans", sans-serif;
+  --ff-2: "Jost", sans-serif;
+  --ff-3: "Cutive Mono", monospace;
+  --ff-4: "Quicksand", sans-serif;
+  --ff-5: "Major Mono Display", monospace;
+  --ff-6: "Open Sans Condensed", sans-serif;
+  --ff-7: "Lobster", cursive;
+  --bc-1: "Libre Barcode 128", cursive;
+  --bc-2: "Libre Barcode 39 Extended Text", cursive;
 
   overflow: hidden;
 }
@@ -30,18 +34,9 @@
   margin: 0;
   padding: 0;
 }
-
-ul {
-  list-style: none;
-}
-
-.sub_nav {
-  list-style: none;
-  position: fixed;
-  margin-left: 3rem;
-  width: 10rem;
-  height: 100vh;
-  transition: 200ms;
+a {
+  text-decoration: none;
+  color: none;
 }
 
 .icon_svg {
