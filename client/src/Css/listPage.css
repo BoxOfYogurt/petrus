@@ -1,7 +1,10 @@
-.dashboard_container {
+.Page_container {
   margin-left: 3em;
   height: 100vh;
   width: 100vw;
+}
+
+.listPage {
   display: grid;
   grid-template-columns: var(--category-width) 1fr;
 }

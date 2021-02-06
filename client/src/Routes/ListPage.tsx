@@ -1,10 +1,10 @@
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 
 import { Categories } from "../Components/SubNavigation/Categories";
-import { List, CreateList } from "../Components/List_Components/List";
+import { ListContent, CreateList } from "../Components/List_Components/List";
 import { CreateListWidget } from "../Widgets/SubWidgets/CreateListWidget";
 
-import "../Css/dashboard.css";
+import "../Css/listPage.css";
 import { useTheme } from "../Store/useTheme";
 
 const dataArray = [
@@ -17,12 +17,12 @@ const dataArray = [
   { id: 7, title: "twitter", status: false, category: "Projects" },
 ];
 
-export const Dashboard = () => {
+export const ListPage = () => {
   const { Theme } = useTheme();
   let { path, url } = useRouteMatch();
   console.log(path, url);
   return (
-    <div className="dashboard_container">
+    <div className="Page_container listPage">
       <nav className="sub_nav" style={Theme.sub_nav}>
         <Categories items={dataArray} url={url} />
         <CreateListWidget />
@@ -32,7 +32,7 @@ export const Dashboard = () => {
           <h1>if no list...</h1>
         </Route>
         <Route path={`${path}/:listId`}>
-          <List list={dataArray[1]} />
+          <ListContent list={dataArray[1]} />
         </Route>
         <Route path={`${path}/createlist`}>
           <CreateList />

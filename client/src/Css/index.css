@@ -39,6 +39,11 @@ a {
   color: none;
 }
 
-.icon_svg {
+div,
+p,
+h1,
+h2,
+section,
+svg {
   transition: 200ms;
 }

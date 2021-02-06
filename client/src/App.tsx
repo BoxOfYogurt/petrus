@@ -1,10 +1,12 @@
 import React from "react";
 import { Switch, Route, useLocation } from "react-router-dom";
 import { Navigation } from "./Components/Navigation_Components/Navigation";
-import { Dashboard } from "./Routes/Dashboard";
+import { ListPage } from "./Routes/ListPage";
 import { Enter } from "./Routes/Enter";
 import "./Css/index.css";
 import { Home } from "./Routes/Home";
+import { CalendarPage } from "./Routes/CalendarPage";
+import { NotePage } from "./Routes/NotePage";
 
 export const App = () => {
   const { pathname } = useLocation();
@@ -18,7 +20,15 @@ export const App = () => {
         </Route>
         <Route path="/list">
           {/* DashBoard */}
-          <Dashboard />
+          <ListPage />
+        </Route>
+        <Route path="/calendar">
+          {/* Calendar */}
+          <CalendarPage />
+        </Route>
+        <Route path="/notes">
+          {/* Calendar */}
+          <NotePage />
         </Route>
         <Route exact path="/enter">
           {/* Enter Components | Login | Register */}

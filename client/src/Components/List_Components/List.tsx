@@ -1,7 +1,7 @@
 import { useTheme } from "../../Store/useTheme";
 import { ListInterface } from "../../Types/ListInterface";
 
-export const List = ({ list }: { list: ListInterface }) => {
+export const ListContent = ({ list }: { list: ListInterface }) => {
   const { Theme } = useTheme();
   return (
     <div style={Theme.list_bg}>

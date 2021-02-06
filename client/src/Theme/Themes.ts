@@ -12,6 +12,7 @@ export interface ThemeTypes {
   nav_marker: { backgroundColor: string };
   h2: { color: string };
   p: { color: string };
+  p_highLight: { color: string };
 }
 
 export const DarkTheme = {
@@ -23,6 +24,7 @@ export const DarkTheme = {
   nav_marker: { backgroundColor: "aqua" },
   h2: { color: "#f3eff5ff" },
   p: { color: "white" },
+  p_highLight: { color: "#68b0abff" },
 };
 export const LightTheme = {
   name: ThemeAction.SET_LIGHT_THEME,
@@ -33,4 +35,5 @@ export const LightTheme = {
   nav_marker: { backgroundColor: "lightcoral" },
   h2: { color: "#0d0a0bff" },
   p: { color: "black" },
+  p_highLight: { color: "#dba159ff" },
 };
