@@ -27,8 +27,8 @@
   align-items: center;
 }
 .cal_month_h1 {
-  font-size: 20px;
-  font-weight: 200;
+  font-size: 21px;
+  font-weight: 500;
   font-family: var(--ff-4);
   width: 8em;
   text-align: center;
@@ -90,9 +90,8 @@
 }
 
 .today_svg {
-  font-size: 18px;
   position: absolute;
-  height: 1em;
+  height: 1.7em;
 }
 
 .cal_arrows_svg {

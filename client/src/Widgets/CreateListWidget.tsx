@@ -1,4 +1,4 @@
-import { ThemeProvider, useTheme } from "../../Store/useTheme";
+import { ThemeProvider, useTheme } from "../Store/useTheme";
 
 export const CreateListWidget = () => {
   const { Theme } = useTheme();

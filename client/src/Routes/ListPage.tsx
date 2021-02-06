@@ -2,7 +2,7 @@ import { Switch, Route, useRouteMatch } from "react-router-dom";
 
 import { Categories } from "../Components/SubNavigation/Categories";
 import { ListContent, CreateList } from "../Components/List_Components/List";
-import { CreateListWidget } from "../Widgets/SubWidgets/CreateListWidget";
+import { CreateListWidget } from "../Widgets/CreateListWidget";
 
 import "../Css/listPage.css";
 import { useTheme } from "../Store/useTheme";

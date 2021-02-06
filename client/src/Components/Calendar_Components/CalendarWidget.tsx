@@ -228,6 +228,7 @@ export const CalendarWidget = () => {
                 }
               >
                 <p style={Theme.p} className="dateNumber_p">
+                  <title>{today.toDateString()}</title>
                   {day.DayDate}
                 </p>
                 {day.FullDate.toDateString() === today.toDateString() ? (
@@ -237,10 +238,8 @@ export const CalendarWidget = () => {
                     className="today_svg"
                     viewBox="0 0 24 24"
                   >
-                    <title>99 o-square</title>
-                    <g id="_01_align_center" data-name="01 align center">
-                      <path d="M24,24H0V0H24ZM2,22H22V2H2Z" />
-                    </g>
+                    <title>{today.toDateString()}</title>
+                    <path d="M19,0H5A5.006,5.006,0,0,0,0,5V19a5.006,5.006,0,0,0,5,5H19a5.006,5.006,0,0,0,5-5V5A5.006,5.006,0,0,0,19,0Zm3,19a3,3,0,0,1-3,3H5a3,3,0,0,1-3-3V5A3,3,0,0,1,5,2H19a3,3,0,0,1,3,3Z" />
                   </svg>
                 ) : null}
               </div>
