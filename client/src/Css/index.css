@@ -1,4 +1,5 @@
 :root {
+  position: relative;
   padding: 0;
   margin: 0;
   font-size: 16px;
@@ -12,11 +13,16 @@
   --transformOriginY: 100vmax;
 
   --rich-black-fogra-39: #0d0a0bff;
+  --charcoal_1: #262933;
   --charcoal: #454955ff;
   --ghost-white: #f3eff5ff;
+  --ghost-white_1: #bbb8bd;
   --earth-yellow: #dba159ff;
   --green-sheen: #68b0abff;
+  --accent_1: #db5a5a;
+  --error-red: #ff1919;
 
+  --ff-inter: "Inter", sans-serif;
   --ff-1: "Fira Sans", sans-serif;
   --ff-2: "Jost", sans-serif;
   --ff-3: "Cutive Mono", monospace;
@@ -27,7 +33,7 @@
   --bc-1: "Libre Barcode 128", cursive;
   --bc-2: "Libre Barcode 39 Extended Text", cursive;
 
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 * {
@@ -46,4 +52,10 @@ h2,
 section,
 svg {
   transition: 200ms;
+}
+
+.Page_container {
+  margin-left: 3em;
+  height: 100vh;
+  width: calc(100vw - 3em);
 }

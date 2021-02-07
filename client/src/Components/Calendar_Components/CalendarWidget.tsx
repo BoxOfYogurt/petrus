@@ -137,11 +137,12 @@ const initialDate: InitialDateProp = {
 };
 const getDateToday = () => {
   const day = new Date();
-  return new Date(day.getFullYear(), day.getMonth(), day.getDay());
+  return new Date(day.getFullYear(), day.getMonth(), day.getDate());
 };
 export const CalendarWidget = () => {
   const { Theme } = useTheme();
   const [today, setToday] = useState<Date>(getDateToday());
+  console.log(today.toDateString());
   const [selected, setSelected] = useState(initialDate);
   const [calendar, setCalendar] = useState<CalendarConfig[]>(() =>
     mapAdjecentMonts(selected)
@@ -173,9 +174,6 @@ export const CalendarWidget = () => {
   return (
     <section className="cal_arr_container">
       <section className="cal_arr_inputs">
-        {/* <button onClick={() => handleChange("prev")}>-</button>
-        <h1>{MonthArray[selected.month]}</h1>
-        <button onClick={() => handleChange("next")}>+</button> */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           style={Theme.nav_svg}
@@ -216,7 +214,7 @@ export const CalendarWidget = () => {
               </div>
             );
           })}
-          {calendar.map((day, index) => {
+          {calendar.map((day) => {
             return (
               <div
                 className="calendar_item"
