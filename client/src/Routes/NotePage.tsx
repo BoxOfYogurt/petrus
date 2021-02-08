@@ -283,7 +283,7 @@ const CreateNote = ({
             <svg
               xmlns="http://www.w3.org/2000/svg"
               style={Theme.nav_svg}
-              className="note_svg"
+              className="note_svg_upload"
               viewBox="0 0 24 24"
             >
               <title>upload</title>
