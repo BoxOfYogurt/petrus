@@ -4,19 +4,20 @@ import { Navigation } from "./Components/Navigation_Components/Navigation";
 import { ListPage } from "./Routes/ListPage";
 import { Enter } from "./Routes/Enter";
 import "./Css/index.css";
-import { Home } from "./Routes/Home";
+import { DashBoard } from "./Routes/DashBoard";
 import { CalendarPage } from "./Routes/CalendarPage";
 import { NotePage } from "./Routes/NotePage";
 
 export const App = () => {
   const { pathname } = useLocation();
+
   return (
     <>
       {pathname !== "/enter" ? <Navigation /> : null}
       <Switch>
         <Route exact path="/">
           {/* DashBoard */}
-          <Home />
+          <DashBoard />
         </Route>
         <Route path="/list">
           {/* DashBoard */}

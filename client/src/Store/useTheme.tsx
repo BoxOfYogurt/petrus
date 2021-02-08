@@ -13,9 +13,22 @@ interface ThemeContextInterface {
 const ThemeContext = createContext<ThemeContextInterface>(
   {} as ThemeContextInterface
 );
-const initialValue = DarkTheme;
+
+// let preferedTheme = DarkTheme;
+const getInitial = () => {
+  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    return DarkTheme;
+  } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+    return LightTheme;
+  } else if (
+    window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  ) {
+    return DarkTheme;
+  }
+  return DarkTheme;
+};
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const [Theme, setTheme] = useState<ThemeTypes>(initialValue);
+  const [Theme, setTheme] = useState<ThemeTypes>(getInitial);
 
   const changeTheme = (theme: ThemeAction) => {
     switch (theme) {

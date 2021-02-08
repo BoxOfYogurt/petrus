@@ -10,18 +10,21 @@ interface ActiveLink {
 
 export const Navigation = () => {
   const { Theme, changeTheme } = useTheme();
-  const [active, changeActive] = useState<ActiveLink>({ top: "-3em" });
+  const [active, changeActive] = useState<ActiveLink>({ top: "0em" });
   const { pathname } = useLocation();
   useEffect(() => {
     switch (pathname) {
-      case "/list":
+      case "/":
         changeActive({ top: "0em" });
         break;
-      case "/calendar":
+      case "/list":
         changeActive({ top: "3em" });
         break;
-      case "/notes":
+      case "/calendar":
         changeActive({ top: "6em" });
+        break;
+      case "/notes":
+        changeActive({ top: "9em" });
         break;
       default:
         console.log("something is Wrong");
@@ -36,6 +39,22 @@ export const Navigation = () => {
             className="nav_marker"
             style={{ ...active, ...Theme.nav_marker }}
           ></span>
+          <li className="main_navigation_item">
+            <Link className="main_nav_link" to="/">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                style={Theme.nav_svg}
+                className="icon_svg"
+                viewBox="0 0 24 24"
+              >
+                <title>DashBoard</title>
+                <path d="M2,11H13a2,2,0,0,0,2-2V2a2,2,0,0,0-2-2H2A2,2,0,0,0,0,2V9A2,2,0,0,0,2,11ZM2,2H13V9H2Z" />
+                <path d="M22,0H19a2,2,0,0,0-2,2V9a2,2,0,0,0,2,2h3a2,2,0,0,0,2-2V2A2,2,0,0,0,22,0Zm0,9H19V2h3Z" />
+                <path d="M5,13H2a2,2,0,0,0-2,2v7a2,2,0,0,0,2,2H5a2,2,0,0,0,2-2V15A2,2,0,0,0,5,13Zm0,9H2V15H5Z" />
+                <path d="M22,13H11a2,2,0,0,0-2,2v7a2,2,0,0,0,2,2H22a2,2,0,0,0,2-2V15A2,2,0,0,0,22,13Zm0,9H11V15H22Z" />
+              </svg>
+            </Link>
+          </li>
           <li className="main_navigation_item">
             <Link className="main_nav_link" to="/list">
               <svg
@@ -62,15 +81,10 @@ export const Navigation = () => {
                 viewBox="0 0 24 24"
               >
                 <title>calendar</title>
-                <g id="_01_align_center" data-name="01 align center">
-                  <path d="M21,2H18V0H16V2H8V0H6V2H3A3,3,0,0,0,0,5V24H24V5A3,3,0,0,0,21,2ZM2,5A1,1,0,0,1,3,4H21a1,1,0,0,1,1,1V8H2ZM2,22V10H22V22Z" />
-                  <rect x="15" y="13" width="2" height="2" />
-                  <rect x="11" y="13" width="2" height="2" />
-                  <rect x="7" y="13" width="2" height="2" />
-                  <rect x="15" y="17" width="2" height="2" />
-                  <rect x="11" y="17" width="2" height="2" />
-                  <rect x="7" y="17" width="2" height="2" />
-                </g>
+                <path d="M19,2H18V1a1,1,0,0,0-2,0V2H8V1A1,1,0,0,0,6,1V2H5A5.006,5.006,0,0,0,0,7V19a5.006,5.006,0,0,0,5,5H19a5.006,5.006,0,0,0,5-5V7A5.006,5.006,0,0,0,19,2ZM2,7A3,3,0,0,1,5,4H19a3,3,0,0,1,3,3V8H2ZM19,22H5a3,3,0,0,1-3-3V10H22v9A3,3,0,0,1,19,22Z" />
+                <circle cx="12" cy="15" r="1.5" />
+                <circle cx="7" cy="15" r="1.5" />
+                <circle cx="17" cy="15" r="1.5" />
               </svg>
             </Link>
           </li>
@@ -83,7 +97,7 @@ export const Navigation = () => {
                 viewBox="0 0 24 24"
               >
                 <title>notes</title>
-                <path d="M7,12H17v2H7Zm0,6h7V16H7ZM22,7.586V24H2V3A3,3,0,0,1,5,0h9.414ZM15,7h3.586L15,3.414Zm5,15V9H13V2H5A1,1,0,0,0,4,3V22Z" />
+                <path d="M17,14a1,1,0,0,1-1,1H8a1,1,0,0,1,0-2h8A1,1,0,0,1,17,14Zm-4,3H8a1,1,0,0,0,0,2h5a1,1,0,0,0,0-2Zm9-6.515V19a5.006,5.006,0,0,1-5,5H7a5.006,5.006,0,0,1-5-5V5A5.006,5.006,0,0,1,7,0h4.515a6.958,6.958,0,0,1,4.95,2.05l3.484,3.486A6.951,6.951,0,0,1,22,10.485ZM15.051,3.464A5.01,5.01,0,0,0,14,2.684V7a1,1,0,0,0,1,1h4.316a4.983,4.983,0,0,0-.781-1.05ZM20,10.485c0-.165-.032-.323-.047-.485H15a3,3,0,0,1-3-3V2.047C11.838,2.032,11.679,2,11.515,2H7A3,3,0,0,0,4,5V19a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3Z" />
               </svg>
             </Link>
           </li>

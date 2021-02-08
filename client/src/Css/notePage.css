@@ -49,7 +49,6 @@
 }
 
 .note_form {
-  position: absolute;
   width: 100%;
   height: 100%;
   display: grid;
@@ -103,4 +102,8 @@
 .note_textarea:focus {
   border-radius: 5px;
   outline: none;
+}
+
+.note_create_text {
+  font-family: var(--ff-inter);
 }

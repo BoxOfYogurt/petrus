@@ -2,19 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../../Store/useTheme";
 import { ListInterface } from "../../Types/ListInterface";
-import "../../Css/categories.css";
+import "../../Css/listNavigation.css";
 
-const ReduceCategories = ({ items }: { items: ListInterface[] }) => {
-  let categoryArray: string[] = [];
-  items.forEach((item) => {
-    if (categoryArray.includes(item.category, 0)) {
-    } else {
-      categoryArray.push(item.category);
-    }
-  });
-  return categoryArray;
-};
-export const Categories = ({
+export const ListNavigation = ({
   items,
   url,
 }: {
@@ -51,4 +41,15 @@ export const Categories = ({
       })}
     </>
   );
+};
+
+const ReduceCategories = ({ items }: { items: ListInterface[] }) => {
+  let categoryArray: string[] = [];
+  items.forEach((item) => {
+    if (categoryArray.includes(item.category, 0)) {
+    } else {
+      categoryArray.push(item.category);
+    }
+  });
+  return categoryArray;
 };
