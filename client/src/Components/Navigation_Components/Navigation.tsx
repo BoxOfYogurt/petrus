@@ -13,22 +13,14 @@ export const Navigation = () => {
   const [active, changeActive] = useState<ActiveLink>({ top: "0em" });
   const { pathname } = useLocation();
   useEffect(() => {
-    switch (pathname) {
-      case "/":
-        changeActive({ top: "0em" });
-        break;
-      case "/list":
-        changeActive({ top: "3em" });
-        break;
-      case "/calendar":
-        changeActive({ top: "6em" });
-        break;
-      case "/notes":
-        changeActive({ top: "9em" });
-        break;
-      default:
-        console.log("something is Wrong");
-        break;
+    if (pathname.includes("/notes")) {
+      changeActive({ top: "9em" });
+    } else if (pathname.includes("/calendar")) {
+      changeActive({ top: "6em" });
+    } else if (pathname.includes("/list")) {
+      changeActive({ top: "3em" });
+    } else {
+      changeActive({ top: "0em" });
     }
   }, [pathname]);
   return (

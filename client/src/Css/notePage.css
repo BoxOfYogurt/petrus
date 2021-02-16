@@ -15,6 +15,7 @@
   font-size: 70px;
   font-weight: 700;
   font-family: var(--ff-inter);
+  user-select: none;
 }
 
 .notes_content {
@@ -30,14 +31,7 @@
   display: flex;
   flex-wrap: wrap;
 }
-.notes_empty {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin-top: calc(50vh - 12rem);
-}
+
 /* NOTE */
 
 .note_container {

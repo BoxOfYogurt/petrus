@@ -1,12 +1,12 @@
 import React from "react";
 import { Switch, Route, useLocation } from "react-router-dom";
 import { Navigation } from "./Components/Navigation_Components/Navigation";
-import { ListPage } from "./Routes/ListPage";
-import { Enter } from "./Routes/Enter";
+import { ListPage } from "./Pages/ListPage";
+import { Enter } from "./Pages/Enter";
 import "./Css/index.css";
-import { DashBoard } from "./Routes/DashBoard";
-import { CalendarPage } from "./Routes/CalendarPage";
-import { NotePage } from "./Routes/NotePage";
+import { DashBoard } from "./Pages/DashBoard";
+import { CalendarPage } from "./Pages/CalendarPage";
+import { NotePage } from "./Pages/NotePage";
 
 export const App = () => {
   const { pathname } = useLocation();

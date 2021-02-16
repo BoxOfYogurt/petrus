@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../../Store/useTheme";
-import { ListInterface } from "../../Types/ListInterface";
+import { ListInterface } from "./ListProps";
 import "../../Css/listNavigation.css";
 
 export const ListNavigation = ({

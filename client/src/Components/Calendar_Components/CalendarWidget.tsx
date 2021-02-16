@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTheme } from "../../Store/useTheme";
+import { getDateToday } from "../utility";
 const DayArray = ["Mon", "Thu", "Wed", "Tue", "Fri", "Sat", "Sun"];
 
 export const MonthArray = [
@@ -135,10 +136,7 @@ const initialDate: InitialDateProp = {
   year: new Date().getFullYear(),
   month: new Date().getMonth(),
 };
-const getDateToday = () => {
-  const day = new Date();
-  return new Date(day.getFullYear(), day.getMonth(), day.getDate());
-};
+
 export const CalendarWidget = () => {
   const { Theme } = useTheme();
   const [today, setToday] = useState<Date>(getDateToday());
