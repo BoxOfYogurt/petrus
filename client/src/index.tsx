@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { App } from "./App";
 import { ErrorProvider } from "./Store/useErrorStore";
-import { ListProvider } from "./Store/useListStore";
+import { ProjectProvider } from "./Store/useProjectStore";
 import { ThemeProvider } from "./Store/useTheme";
 
 ReactDOM.render(
@@ -11,9 +11,9 @@ ReactDOM.render(
     <BrowserRouter>
       <ErrorProvider>
         <ThemeProvider>
-          <ListProvider>
+          <ProjectProvider>
             <App />
-          </ListProvider>
+          </ProjectProvider>
         </ThemeProvider>
       </ErrorProvider>
     </BrowserRouter>

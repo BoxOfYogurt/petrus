@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { TaskInterface, useListStore } from "../../Store/useListStore";
+import { TaskInterface, useListStore } from "../../Store/useProjectStore";
 import { useTheme } from "../../Store/useTheme";
 import { ListInterface } from "./ListProps";
 

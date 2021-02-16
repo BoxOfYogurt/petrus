@@ -1,7 +1,7 @@
 import { useTheme } from "../Store/useTheme";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 /* LISTSTORE */
-import { useListStore } from "../Store/useListStore";
+import { useProjectStore } from "../Store/useProjectStore";
 /* COMPONENTS */
 import { ListNavigation } from "../Components/List_Components/ListNavigation";
 import { List } from "../Components/List_Components/List";
@@ -11,7 +11,7 @@ import { CreateListWidget } from "../Widgets/CreateListWidget";
 import "../Css/listPage.css";
 
 export const ListPage = () => {
-  const { listStore } = useListStore();
+  const { projectStore } = useProjectStore();
   const { Theme } = useTheme();
   let { path, url } = useRouteMatch();
 
