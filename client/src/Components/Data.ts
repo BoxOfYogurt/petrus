@@ -1,20 +1,18 @@
-import { EnumDeclaration } from "typescript";
-
-const colors = {
-  Phthalo_Green: "11270b",
-  Space_Cadet: "21295c",
-  Coral: "ff7f51",
-  Steel_Teal: "5b7b7a",
-  Platinum: "ebebeb",
-  Russian_Violet: "390040",
-  Patriarch: "730071",
-  Crimson: "d7263d",
-  Oxford_Blue: "011638",
-  Yellow_Green_Crayola: "ceec97",
-  default: "21295c",
+export const colors = {
+  Phthalo_Green: "#11270b",
+  Space_Cadet: "#21295c",
+  Coral: "#ff7f51",
+  Steel_Teal: "#5b7b7a",
+  Platinum: "#ebebeb",
+  Russian_Violet: "#390040",
+  Patriarch: "#730071",
+  Crimson: "#d7263d",
+  Oxford_Blue: "#011638",
+  Yellow_Green_Crayola: "#ceec97",
+  default: "#21295c",
 };
 
-enum StatusLevel {
+export enum StatusLevel {
   Asap = 0,
   Urgent = 1,
   Important = 2,
@@ -27,8 +25,8 @@ export interface TaskInterface {
   task_description: string;
   completed: boolean;
   status_level: StatusLevel;
-  end_date: Date;
   start_date: Date;
+  end_date: Date;
 }
 export interface SubCategoriesInterface {
   id: number;
@@ -53,6 +51,60 @@ export const Data: CategoriesInterface[] = [
     color_code: colors.Oxford_Blue,
     category_title: "Projects",
     projects: [
+      {
+        id: 21,
+        project_title: "Petrus",
+        sub_categories: [
+          {
+            id: 21,
+            sub_category_title: "Design",
+            tasks: [
+              {
+                id: 21,
+                task_title: "Set Position Absolute",
+                task_description: "...A short Description about the task",
+                completed: false,
+                status_level: StatusLevel.Regular,
+                start_date: new Date(2021, 2, 5),
+                end_date: new Date(2021, 3, 0),
+              },
+              {
+                id: 22,
+                task_title: "Adjust Navigation Margins",
+                task_description: "...A short Description about the task",
+                completed: false,
+                status_level: StatusLevel.Regular,
+                start_date: new Date(2021, 2, 5),
+                end_date: new Date(2021, 3, 0),
+              },
+            ],
+          },
+          {
+            id: 22,
+            sub_category_title: "Team members",
+            tasks: [
+              {
+                id: 23,
+                task_title: "Hire frontend developer",
+                task_description: "...A short Description about the task",
+                completed: false,
+                status_level: StatusLevel.Important,
+                start_date: new Date(2021, 2, 5),
+                end_date: new Date(2021, 3, 2),
+              },
+              {
+                id: 24,
+                task_title: "Hire Teamleader for marketdivision",
+                task_description: "...A short Description about the task",
+                completed: false,
+                status_level: StatusLevel.Asap,
+                start_date: new Date(2021, 2, 5),
+                end_date: new Date(2021, 3, 9),
+              },
+            ],
+          },
+        ],
+      },
       {
         id: 1,
         project_title: "Twitter",
@@ -173,12 +225,12 @@ export const Data: CategoriesInterface[] = [
     ],
   },
   {
-    id: 3,
+    id: 200,
     color_code: colors.Russian_Violet,
     category_title: "Personal",
     projects: [
       {
-        id: 3,
+        id: 10,
         project_title: "Entertainment",
         sub_categories: [
           {
@@ -243,8 +295,8 @@ export const Data: CategoriesInterface[] = [
     ],
   },
   {
-    id: 3,
-    color_code: colors.Yellow_Green_Crayola,
+    id: 6,
+    color_code: colors.Coral,
     category_title: "Learning",
     projects: [
       {

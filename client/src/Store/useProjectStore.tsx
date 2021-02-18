@@ -5,7 +5,7 @@ import {
   ProjectsInterface,
   SubCategoriesInterface,
   TaskInterface,
-} from "../Components/ListData";
+} from "../Components/Data";
 
 enum ActionType {
   ADD_CATEGORY = "ADD_CATEGORY",
@@ -64,6 +64,12 @@ export const ProjectProvider = ({
       (elem) => elem.id === action.task_id
     );
     switch (action.type) {
+      /*  ===============
+          SWITCH CONTENT
+          =============== 
+          UPDATE
+      */
+
       case ActionType.UPDATE_CATEGORY:
         if (action.category_payload) {
           reducerStore[category_idx] = {

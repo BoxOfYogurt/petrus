@@ -17,7 +17,7 @@ export const Navigation = () => {
       changeActive({ top: "9em" });
     } else if (pathname.includes("/calendar")) {
       changeActive({ top: "6em" });
-    } else if (pathname.includes("/list")) {
+    } else if (pathname.includes("/project")) {
       changeActive({ top: "3em" });
     } else {
       changeActive({ top: "0em" });
@@ -48,14 +48,14 @@ export const Navigation = () => {
             </Link>
           </li>
           <li className="main_navigation_item">
-            <Link className="main_nav_link" to="/list">
+            <Link className="main_nav_link" to="/project">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 style={Theme.nav_svg}
                 className="icon_svg"
                 viewBox="0 0 24 24"
               >
-                <title>lists</title>
+                <title>projects</title>
                 <g id="_01_align_center" data-name="01 align center">
                   <path d="M23.944,7.662,12,.5.056,7.662,12,14.828ZM12,2.828l8.056,4.834L12,12.5,3.944,7.662Z" />
                   <polygon points="24 13.965 12 21.165 0 13.965 0 16.298 12 23.497 24 16.298 24 13.965" />

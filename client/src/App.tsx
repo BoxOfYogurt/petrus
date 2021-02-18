@@ -1,12 +1,12 @@
 import React from "react";
 import { Switch, Route, useLocation } from "react-router-dom";
 import { Navigation } from "./Components/Navigation_Components/Navigation";
-import { ListPage } from "./Pages/ListPage";
 import { Enter } from "./Pages/Enter";
 import "./Css/index.css";
 import { DashBoard } from "./Pages/DashBoard";
 import { CalendarPage } from "./Pages/CalendarPage";
 import { NotePage } from "./Pages/NotePage";
+import { ProjectPage } from "./Pages/ProjectPage";
 
 export const App = () => {
   const { pathname } = useLocation();
@@ -19,9 +19,9 @@ export const App = () => {
           {/* DashBoard */}
           <DashBoard />
         </Route>
-        <Route path="/list">
+        <Route path="/project">
           {/* DashBoard */}
-          <ListPage />
+          <ProjectPage />
         </Route>
         <Route path="/calendar">
           {/* Calendar */}

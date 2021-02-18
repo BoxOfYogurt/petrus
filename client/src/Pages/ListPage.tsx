@@ -11,14 +11,13 @@ import { CreateListWidget } from "../Widgets/CreateListWidget";
 import "../Css/listPage.css";
 
 export const ListPage = () => {
-  const { projectStore } = useProjectStore();
   const { Theme } = useTheme();
   let { path, url } = useRouteMatch();
 
   return (
     <div style={Theme.page} className="Page_container listPage">
       <nav className="sub_nav" style={Theme.sub_nav}>
-        <ListNavigation items={listStore} url={url} />
+        {/* <ListNavigation items={listStore} url={url} /> */}
         <CreateListWidget url={url} />
       </nav>
       <Switch>

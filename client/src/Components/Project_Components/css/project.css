@@ -1,0 +1,14 @@
+.project_container {
+  background-color: white;
+  display: grid;
+  grid-template-rows: 15em 1fr 3em;
+}
+
+.project_header {
+}
+
+.project_content {
+}
+
+.project_footer {
+}
