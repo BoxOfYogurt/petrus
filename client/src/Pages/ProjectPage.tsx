@@ -1,9 +1,7 @@
-import React, { useState } from "react";
 import { ProjectNavigation } from "../Components/Project_Components/ProjectNavigation";
 import { useProjectStore } from "../Store/useProjectStore";
 import "../Css/projectPage.css";
 import { Route, Switch, useRouteMatch } from "react-router-dom";
-import { useTheme } from "../Store/useTheme";
 import { Project } from "../Components/Project_Components/Project";
 
 export interface FocusInterface {
@@ -18,7 +16,7 @@ export const ProjectPage = () => {
   let match = useRouteMatch<{ projectId: string }>("/project/:projectId");
 
   return (
-    <div className="Page_container ProjectPage">
+    <div className='Page_container ProjectPage'>
       <ProjectNavigation categories={projectStore} currentRoute={match} />
       <Switch>
         <Route exact path={path}>

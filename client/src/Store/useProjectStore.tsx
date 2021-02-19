@@ -49,20 +49,25 @@ export const ProjectProvider = ({
     action
   ) => {
     let reducerStore = [...state];
+
     let category_idx = reducerStore.findIndex(
       (elem) => elem.id === action.category_id
     );
+
     let project_idx = reducerStore[category_idx].projects.findIndex(
       (elem) => elem.id === action.project_id
     );
+
     let sub_category_idx = reducerStore[category_idx].projects[
       project_idx
     ].sub_categories.findIndex((elem) => elem.id === action.sub_category_id);
+
     let task_idx = reducerStore[category_idx].projects[
       project_idx
     ].sub_categories[sub_category_idx].tasks.findIndex(
       (elem) => elem.id === action.task_id
     );
+
     switch (action.type) {
       /*  ===============
           SWITCH CONTENT
