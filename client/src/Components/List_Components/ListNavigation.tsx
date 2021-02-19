@@ -21,16 +21,16 @@ export const ListNavigation = ({
     <>
       {categories.map((category, index) => {
         return (
-          <ul className="category_container" key={index}>
-            <li className="category_header">
-              <h2 className="category_header_text" style={Theme.h2}>
+          <ul className='category_container' key={index}>
+            <li className='category_header'>
+              <h2 className='category_header_text' style={Theme.h2}>
                 {category}
               </h2>
             </li>
             {items.map((list) =>
               list.category === category ? (
                 <li key={list.id}>
-                  <Link className="list_link" to={`${url}/${list.id}`}>
+                  <Link className='list_link' to={`${url}/${list.id}`}>
                     <p style={Theme.p}>{list.title}</p>
                   </Link>
                 </li>

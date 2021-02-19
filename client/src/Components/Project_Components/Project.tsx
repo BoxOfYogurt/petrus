@@ -23,22 +23,23 @@ export const Project = ({
             setCurrentProject(
               projectStore[category_index].projects[project_index]
             );
+            console.log(projectStore[category_index].projects[project_index]);
           }
         });
       }
     }
   }, [currentRoute, projectStore]);
   return (
-    <div className="project_container">
-      <div className="project_header">
+    <div className='project_container'>
+      <div className='project_header'>
         <div>
           <h2>Project Title</h2>
         </div>
       </div>
-      <div className="project_content">
+      <div className='project_content'>
         {JSON.stringify(currentProject, null, 2)}
       </div>
-      <div className="project_footer"></div>
+      <div className='project_footer'></div>
     </div>
   );
 };

@@ -3,6 +3,7 @@
   display: grid;
   grid-template-rows: 17rem 1fr;
   overflow-x: auto;
+  scrollbar-width: thin;
 }
 
 .notes_header {

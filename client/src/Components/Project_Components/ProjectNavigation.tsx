@@ -3,6 +3,10 @@ import { Link, match, useRouteMatch } from "react-router-dom";
 import { FocusInterface } from "../../Pages/ProjectPage";
 import { useTheme } from "../../Store/useTheme";
 import { CategoriesInterface, ProjectsInterface } from "../Data";
+
+import { ReactComponent as SquareIcon } from "../../Svg/SquareIcon.svg";
+import { ReactComponent as CaretIcon } from "../../Svg/CaretIcon.svg";
+
 import "./css/projectNavigation.css";
 
 export const ProjectNavigation = ({
@@ -37,7 +41,7 @@ export const ProjectNavigation = ({
     }
   }, [categories, currentRoute]);
   return (
-    <nav style={Theme.sub_nav} className="category_navigation">
+    <nav style={Theme.sub_nav} className='category_navigation'>
       {categories.map((category, idx) => (
         <Category
           key={category.id}
@@ -75,29 +79,20 @@ const Category = ({
     }
   }, [isFocused, setCatetPos, index]);
   return (
-    <ul className="category_navigation_ul">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        className="category_navigation_svg caret_svg"
+    <ul className='category_navigation_ul'>
+      <CaretIcon
+        className='category_navigation_svg caret_svg'
         fill={category.color_code}
         style={caretPos}
-      >
-        <title>Current List</title>
-        <path d="M9,17.879V6.707A1,1,0,0,1,10.707,6l5.586,5.586a1,1,0,0,1,0,1.414l-5.586,5.586A1,1,0,0,1,9,17.879Z" />
-      </svg>
-      <li className="category_navigation_header_container">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          className="category_navigation_svg"
+      />
+      <li className='category_navigation_header_container'>
+        <SquareIcon
+          className='category_navigation_svg'
           fill={category.color_code}
-        >
-          <title>{category.category_title}</title>
-          <path d="M19,0H5A5.006,5.006,0,0,0,0,5V19a5.006,5.006,0,0,0,5,5H19a5.006,5.006,0,0,0,5-5V5A5.006,5.006,0,0,0,19,0Zm3,19a3,3,0,0,1-3,3H5a3,3,0,0,1-3-3V5A3,3,0,0,1,5,2H19a3,3,0,0,1,3,3Z" />
-        </svg>
+        />
+
         <h2
-          className="category_navigation_title"
+          className='category_navigation_title'
           style={{ color: category.color_code }}
         >
           {category.category_title.toUpperCase()}
@@ -129,13 +124,13 @@ const ProjectNavigationItem = ({
   const { url } = useRouteMatch();
 
   return (
-    <li className="project_navigation_item">
-      <Link className="project_navigation_link" to={`${url}/${project.id}`}>
+    <li className='project_navigation_item'>
+      <Link className='project_navigation_link' to={`${url}/${project.id}`}>
         <h3
           style={
             isFocused.project_id === project.id ? Theme.p_highLight : Theme.p
           }
-          className="project_navigation_title"
+          className='project_navigation_title'
         >
           {project.project_title}
         </h3>
@@ -155,14 +150,14 @@ const CategorySettingsWidget = ({
     <>
       <div>
         <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          className="setting_navigation_svg"
+          xmlns='http://www.w3.org/2000/svg'
+          viewBox='0 0 24 24'
+          className='setting_navigation_svg'
         >
           <title>settings</title>
-          <circle cx="12" cy="2" r="2" />
-          <circle cx="12" cy="12" r="2" />
-          <circle cx="12" cy="22" r="2" />
+          <circle cx='12' cy='2' r='2' />
+          <circle cx='12' cy='12' r='2' />
+          <circle cx='12' cy='22' r='2' />
         </svg>
       </div>
     </>

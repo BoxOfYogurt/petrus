@@ -2,7 +2,6 @@
   position: fixed;
   width: var(--navigation-width);
   height: 100vh;
-  transition: 200ms;
 }
 .main_navigation_list {
   position: relative;
