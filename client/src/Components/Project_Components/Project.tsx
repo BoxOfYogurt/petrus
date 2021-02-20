@@ -95,7 +95,7 @@ export const Project = ({
             <div className='project_widgets'>
               <ProgressCircle data={taskArray} size={150} strokeSize={20} />
             </div>
-            <div className='project_footer'></div>
+            <div style={Theme.border_color} className='project_footer'></div>
           </>
         )}
       </div>

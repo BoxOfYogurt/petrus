@@ -5,12 +5,14 @@ export enum ThemeAction {
 export interface ThemeTypes {
   name: ThemeAction;
   page: { backgroundColor: string };
+  border_color: { borderColor: string };
   navigation_primary: { backgroundColor: string };
   navigation_secondary: { backgroundColor: string };
   svg_default: { fill: string };
   svg_remove: { fill: string };
   svg_stroke: string;
-  list_bg: { backgroundColor: string };
+  bg_highLight: { backgroundColor: string };
+  bg_red: { backgroundColor: string };
   nav_marker: { backgroundColor: string };
   h2: { color: string };
   p: { color: string };
@@ -33,17 +35,20 @@ const GlobalColors = {
   light_secondary: "lightgrey",
   light_accent: "white",
   light_highlight: "#dba159ff",
+  error_red: "#ff1919",
 };
 
 export const DarkTheme = {
   name: ThemeAction.SET_DARK_THEME,
   page: { backgroundColor: GlobalColors.dark_page },
+  border_color: { borderColor: GlobalColors.dark_highlight },
   navigation_primary: { backgroundColor: GlobalColors.dark_primary },
   navigation_secondary: { backgroundColor: GlobalColors.dark_secondary },
   svg_default: { fill: "#68b0abff" },
-  svg_remove: { fill: "#ff1919" },
+  svg_remove: { fill: GlobalColors.error_red },
   svg_stroke: GlobalColors.dark_highlight,
-  list_bg: { backgroundColor: "#262933" },
+  bg_highLight: { backgroundColor: GlobalColors.dark_highlight },
+  bg_red: { backgroundColor: GlobalColors.error_red },
   nav_marker: { backgroundColor: "aqua" },
   h2: { color: "#f3eff5ff" },
   p: { color: "#f3eff5ff" },
@@ -58,12 +63,14 @@ export const DarkTheme = {
 export const LightTheme = {
   name: ThemeAction.SET_LIGHT_THEME,
   page: { backgroundColor: "#f3eff5ff" },
+  border_color: { borderColor: GlobalColors.light_highlight },
   navigation_primary: { backgroundColor: GlobalColors.light_primary },
   navigation_secondary: { backgroundColor: "#ebe7ee" },
   svg_default: { fill: "#dba159ff" },
   svg_remove: { fill: "#ff1919" },
   svg_stroke: GlobalColors.light_highlight,
-  list_bg: { backgroundColor: "#bbb8bd" },
+  bg_highLight: { backgroundColor: GlobalColors.light_highlight },
+  bg_red: { backgroundColor: GlobalColors.error_red },
   nav_marker: { backgroundColor: "lightcoral" },
   h2: { color: "#0d0a0bff" },
   p: { color: "#0d0a0bff" },

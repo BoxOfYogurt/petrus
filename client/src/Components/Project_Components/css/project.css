@@ -6,6 +6,7 @@
     "header header widget"
     "content content widget"
     "footer footer footer";
+  overflow: hidden;
 }
 
 .project_header {
@@ -15,6 +16,9 @@
 .project_content {
   grid-area: content;
   min-width: 30rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
 }
 
 .project_widgets {
@@ -26,6 +30,8 @@
 
 .project_footer {
   grid-area: footer;
+  border-top: 2px solid;
+  opacity: 0.2;
 }
 
 .project_route_text_container > p {

@@ -3,11 +3,13 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 1px solid #68b0abff;
+  border: 1px solid;
   border-top: none;
   border-left: none;
   border-right: none;
+  cursor: pointer;
 }
+
 .task_container:first-child {
   border-top: 1px solid #68b0abff;
 }
@@ -32,4 +34,19 @@
   font-family: var(--ff-inter);
   font-size: 16px;
   font-weight: 400;
+}
+
+/* TASK INFO */
+
+.task_info_deadline {
+  margin: 0 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+}
+.task_info_deadline > p {
+  margin: 0.3em 1em;
+  font-family: var(--ff-inter);
+  font-size: 12px;
 }

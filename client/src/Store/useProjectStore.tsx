@@ -48,7 +48,6 @@ export const ProjectProvider = ({
     state,
     action
   ) => {
-    console.log(action.task_payload?.completed);
     let reducerStore = [...state];
 
     let category_idx = reducerStore.findIndex(
@@ -121,6 +120,7 @@ export const ProjectProvider = ({
             ].tasks[task_idx],
             task_title: action.task_payload.task_title,
             task_description: action.task_payload.task_description,
+            task_tag: action.task_payload.task_tag,
             completed: action.task_payload.completed,
             status_level: action.task_payload.status_level,
             end_date: action.task_payload.end_date,
@@ -138,12 +138,6 @@ export const ProjectProvider = ({
     React.Reducer<CategoryInterface[], ProjectActions>
   >(StoreReducer, Data);
 
-  useEffect(() => {
-    console.log(
-      "ProjectStore_.tsx: Update ",
-      projectStore[0].projects[0].sub_categories[0].tasks[0].completed
-    );
-  }, [projectStore]);
   return (
     <ProjectContext.Provider
       value={{ projectStore, projectDispatch }}

@@ -4,10 +4,11 @@ import { TaskInterface } from "../Data";
 import { ReactComponent as CheckBoxIcon } from "../../Svg/CheckBoxIcon.svg";
 import { ReactComponent as SquareIcon } from "../../Svg/SquareIcon.svg";
 
-import { ThemeProvider, useTheme } from "../../Store/useTheme";
+import { useTheme } from "../../Store/useTheme";
 import { useProjectStore } from "../../Store/useProjectStore";
 import { ActionType } from "../../Store/useProjectStore";
 import { useToggle } from "../../Hooks/useToggle";
+import { DeadlineWidget } from "../../Widgets/DeadlineWidget";
 
 export const Task = ({
   categoryId,
@@ -45,7 +46,7 @@ export const Task = ({
 
   return (
     <>
-      <li className='task_container'>
+      <li style={Theme.border_color} className='task_container'>
         <div className='task_completed' onClick={handleCompleted}>
           {currentTask.completed ? (
             <CheckBoxIcon className='task_svg' />
@@ -53,11 +54,13 @@ export const Task = ({
             <SquareIcon className='task_svg' />
           )}
         </div>
-        <div className='task_importance'>{/* SVGComponent Here */}</div>
         <div className='task_title_container'>
           <h4 style={Theme.p} className='task_title_text'>
             {currentTask.task_title}
           </h4>
+        </div>
+        <div className='task_info'>
+          <DeadlineWidget task={currentTask} />
         </div>
         <div className='task_options_container'>
           {/* SVGComponent options Here === modul or 3 svg icons??? */}
