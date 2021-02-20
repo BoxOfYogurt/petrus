@@ -1,14 +1,34 @@
 .project_container {
-  background-color: white;
   display: grid;
-  grid-template-rows: 15em 1fr 3em;
+  grid-template-rows: 12em 1fr 3em;
+  grid-template-columns: 1fr 1fr 25rem;
+  grid-template-areas:
+    "header header widget"
+    "content content widget"
+    "footer footer footer";
 }
 
 .project_header {
+  grid-area: header;
 }
 
 .project_content {
+  grid-area: content;
+  min-width: 30rem;
+}
+
+.project_widgets {
+  min-width: 25rem;
+  grid-area: widget;
+  display: flex;
+  justify-content: center;
 }
 
 .project_footer {
+  grid-area: footer;
+}
+
+.project_route_text_container > p {
+  font-family: var(--ff-inter);
+  font-style: italic;
 }

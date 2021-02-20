@@ -31,30 +31,29 @@ export const Navigation = () => {
   }, [pathname]);
   return (
     <>
-      <nav style={Theme.main_nav} className='main_nav'>
+      <nav style={Theme.navigation_primary} className='main_nav'>
         <ul className='main_navigation_list'>
           <span
             className='nav_marker'
-            style={{ ...active, ...Theme.nav_marker }}
-          ></span>
+            style={{ ...active, ...Theme.nav_marker }}></span>
           <li className='main_navigation_item'>
             <Link className='main_nav_link' to='/'>
-              <DashBoardIcon style={Theme.nav_svg} className='icon_svg' />
+              <DashBoardIcon style={Theme.svg_default} className='icon_svg' />
             </Link>
           </li>
           <li className='main_navigation_item'>
             <Link className='main_nav_link' to='/project'>
-              <ProjectIcon style={Theme.nav_svg} className='icon_svg' />
+              <ProjectIcon style={Theme.svg_default} className='icon_svg' />
             </Link>
           </li>
           <li className='main_navigation_item'>
             <Link className='main_nav_link' to='/calendar'>
-              <CalendarIcon style={Theme.nav_svg} className='icon_svg' />
+              <CalendarIcon style={Theme.svg_default} className='icon_svg' />
             </Link>
           </li>
           <li className='main_navigation_item'>
             <Link className='main_nav_link' to='/notes'>
-              <NoteIcon style={Theme.nav_svg} className='icon_svg' />
+              <NoteIcon style={Theme.svg_default} className='icon_svg' />
             </Link>
           </li>
           <li
@@ -63,16 +62,15 @@ export const Navigation = () => {
               Theme.name === ThemeAction.SET_DARK_THEME
                 ? changeTheme(ThemeAction.SET_LIGHT_THEME)
                 : changeTheme(ThemeAction.SET_DARK_THEME);
-            }}
-          >
+            }}>
             <div className='main_nav_link'>
-              <ThemeIcon style={Theme.nav_svg} className='icon_svg' />
+              <ThemeIcon style={Theme.svg_default} className='icon_svg' />
             </div>
           </li>
           <li className='main_navigation_item'>
             <Link className='main_nav_link' to='/enter'>
               <SignOutIcon
-                style={{ ...Theme.nav_svg, transform: "rotate(180deg)" }}
+                style={{ ...Theme.svg_default, transform: "rotate(180deg)" }}
                 className='icon_svg'
               />
             </Link>

@@ -28,24 +28,25 @@ export interface TaskInterface {
   start_date: Date;
   end_date: Date;
 }
-export interface SubCategoriesInterface {
+export interface SubCategoryInterface {
   id: number;
   sub_category_title: string;
   tasks: TaskInterface[];
 }
-export interface ProjectsInterface {
+export interface ProjectInterface {
   id: number;
   project_title: string;
-  sub_categories: SubCategoriesInterface[];
+  project_description: string;
+  sub_categories: SubCategoryInterface[];
 }
-export interface CategoriesInterface {
+export interface CategoryInterface {
   id: number;
   color_code: string;
   category_title: string;
-  projects: ProjectsInterface[];
+  projects: ProjectInterface[];
 }
 
-export const Data: CategoriesInterface[] = [
+export const Data: CategoryInterface[] = [
   {
     id: 1,
     color_code: colors.Oxford_Blue,
@@ -54,6 +55,8 @@ export const Data: CategoriesInterface[] = [
       {
         id: 21,
         project_title: "Petrus",
+        project_description:
+          "...A short description about the current project. What more can you say?",
         sub_categories: [
           {
             id: 21,
@@ -108,6 +111,8 @@ export const Data: CategoriesInterface[] = [
       {
         id: 1,
         project_title: "Twitter",
+        project_description:
+          "...A short description about the current project. What more can you say?",
         sub_categories: [
           {
             id: 1,
@@ -162,6 +167,8 @@ export const Data: CategoriesInterface[] = [
       {
         id: 2,
         project_title: "Facebook",
+        project_description:
+          "...A short description about the current project. What more can you say?",
         sub_categories: [
           {
             id: 3,
@@ -232,6 +239,8 @@ export const Data: CategoriesInterface[] = [
       {
         id: 10,
         project_title: "Entertainment",
+        project_description:
+          "...A short description about the current project. What more can you say?",
         sub_categories: [
           {
             id: 5,
@@ -302,6 +311,8 @@ export const Data: CategoriesInterface[] = [
       {
         id: 4,
         project_title: "React",
+        project_description:
+          "...A short description about the current project. What more can you say?",
         sub_categories: [
           {
             id: 7,

@@ -3,6 +3,7 @@ import { useProjectStore } from "../Store/useProjectStore";
 import "../Css/projectPage.css";
 import { Route, Switch, useRouteMatch } from "react-router-dom";
 import { Project } from "../Components/Project_Components/Project";
+import { useTheme } from "../Store/useTheme";
 
 export interface FocusInterface {
   category_idx?: number;
@@ -11,6 +12,7 @@ export interface FocusInterface {
   project_id?: number;
 }
 export const ProjectPage = () => {
+  const { Theme } = useTheme();
   const { projectStore } = useProjectStore();
   let { path } = useRouteMatch();
   let match = useRouteMatch<{ projectId: string }>("/project/:projectId");
@@ -20,7 +22,7 @@ export const ProjectPage = () => {
       <ProjectNavigation categories={projectStore} currentRoute={match} />
       <Switch>
         <Route exact path={path}>
-          <h1>if no list...</h1>
+          <div style={Theme.page}></div>
         </Route>
         <Route exact path={`${path}/createlist`}>
           <h1>CreateList</h1>

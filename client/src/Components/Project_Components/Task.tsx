@@ -1,6 +1,13 @@
-import "../../Css/task.css";
-import { useState } from "react";
+import "./css/task.css";
+import { useEffect, useState } from "react";
 import { TaskInterface } from "../Data";
+import { ReactComponent as CheckBoxIcon } from "../../Svg/CheckBoxIcon.svg";
+import { ReactComponent as SquareIcon } from "../../Svg/SquareIcon.svg";
+
+import { ThemeProvider, useTheme } from "../../Store/useTheme";
+import { useProjectStore } from "../../Store/useProjectStore";
+import { ActionType } from "../../Store/useProjectStore";
+import { useToggle } from "../../Hooks/useToggle";
 
 export const Task = ({
   categoryId,
@@ -13,20 +20,49 @@ export const Task = ({
   subCategoryId: number;
   task: TaskInterface;
 }) => {
-  const [currentTask, setTask] = useState<TaskInterface>(task);
+  const { Theme } = useTheme();
+  const { projectDispatch } = useProjectStore();
+  const [currentTask, setCurrentTask] = useState<TaskInterface>(task);
+  const { switchValue, handleSwitch } = useToggle(false);
+
+  const handleCompleted = () => {
+    // console.log("before ", currentTask.completed);
+    setCurrentTask({ ...currentTask, completed: !currentTask.completed });
+    // console.log("after ", currentTask.completed);
+    //Make a call to the Db with the new Data,
+  };
+
+  useEffect(() => {
+    projectDispatch({
+      type: ActionType.UPDATE_TASK,
+      category_id: categoryId,
+      project_id: projectId,
+      sub_category_id: subCategoryId,
+      task_id: currentTask.id,
+      task_payload: currentTask,
+    });
+  }, [categoryId, currentTask, projectDispatch, projectId, subCategoryId]);
 
   return (
     <>
-      <div className='task_container'>
-        <div className='task_completed'>
-          {currentTask.completed ? <h2>Completed</h2> : <h2>False</h2>}
+      <li className='task_container'>
+        <div className='task_completed' onClick={handleCompleted}>
+          {currentTask.completed ? (
+            <CheckBoxIcon className='task_svg' />
+          ) : (
+            <SquareIcon className='task_svg' />
+          )}
         </div>
         <div className='task_importance'>{/* SVGComponent Here */}</div>
-        <div className='task_title'>{currentTask.task_title}</div>
+        <div className='task_title_container'>
+          <h4 style={Theme.p} className='task_title_text'>
+            {currentTask.task_title}
+          </h4>
+        </div>
         <div className='task_options_container'>
           {/* SVGComponent options Here === modul or 3 svg icons??? */}
         </div>
-      </div>
+      </li>
     </>
   );
 };

@@ -3,15 +3,17 @@ import { useEffect, useState } from "react";
 import { match } from "react-router-dom";
 import { useProjectStore } from "../../Store/useProjectStore";
 import { useTheme } from "../../Store/useTheme";
-import { ProjectsInterface } from "../Data";
+import { ProjectInterface, SubCategoryInterface, TaskInterface } from "../Data";
 
 //Components
 import { SubCategory } from "./SubCategory";
+import { ProgressCircle } from "../Progress_Components/ProgressCircle";
 
 interface RequiredCategoryInfoInterface {
   id: number;
   title: string;
 }
+
 export const Project = ({
   currentRoute,
 }: {
@@ -24,7 +26,19 @@ export const Project = ({
     categoryInfo,
     setCategoryInfo,
   ] = useState<RequiredCategoryInfoInterface>();
-  const [currentProject, setCurrentProject] = useState<ProjectsInterface>();
+  const [currentProject, setCurrentProject] = useState<ProjectInterface>();
+  const [
+    focusedCategory,
+    setFocusedCategory,
+  ] = useState<SubCategoryInterface | null>(null);
+  const [taskArray, setTaskArray] = useState<TaskInterface[] | []>([]);
+
+  const handleFocusedCategory = (CategoryData: SubCategoryInterface) => {
+    setFocusedCategory(CategoryData);
+  };
+  const handleFocusedCategoryLeave = () => {
+    setFocusedCategory(null);
+  };
 
   useEffect(() => {
     if (currentRoute) {
@@ -39,24 +53,33 @@ export const Project = ({
               id: category.id,
               title: category.category_title,
             });
-            setCurrentProject(
-              projectStore[category_index].projects[project_index]
+            setCurrentProject(category.projects[project_index]);
+            let variableArray: TaskInterface[] = [];
+            category.projects[
+              project_index
+            ].sub_categories.forEach((sub_category) =>
+              sub_category.tasks.forEach(
+                (task) => (variableArray = [...variableArray, task])
+              )
             );
+            setTaskArray(variableArray);
           }
         });
       }
     }
   }, [currentRoute, projectStore]);
+
   return (
     <>
-      <div className='project_container'>
+      <div style={Theme.page} className='project_container'>
         {categoryInfo && currentProject && (
           <>
             <div className='project_header'>
-              <div className='Project_route_text_container'>
+              <div className='project_route_text_container'>
                 <p
-                  style={Theme.p_opacity}
-                >{`${categoryInfo.title} / ${currentProject.project_title}`}</p>
+                  style={
+                    Theme.p_opacity
+                  }>{`${categoryInfo.title} / ${currentProject.project_title}`}</p>
               </div>
             </div>
             <div className='project_content'>
@@ -68,6 +91,9 @@ export const Project = ({
                   subCategory={subCategory}
                 />
               ))}
+            </div>
+            <div className='project_widgets'>
+              <ProgressCircle data={taskArray} size={150} strokeSize={20} />
             </div>
             <div className='project_footer'></div>
           </>

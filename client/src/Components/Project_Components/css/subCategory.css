@@ -1,0 +1,18 @@
+.subcategory_container {
+  margin: 0 1em 3em 1em;
+}
+
+/* HEADER */
+
+.subcategory_header {
+  height: 5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* Title for subCategory */
+.subcategory_title {
+  font-family: var(--ff-inter);
+  font-size: 50px;
+  letter-spacing: 1px;
+}

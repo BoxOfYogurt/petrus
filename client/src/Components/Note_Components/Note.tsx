@@ -101,7 +101,7 @@ const Note = ({
             <EditIcon
               onClick={() => setReadOnly(false)}
               className='note_svg'
-              style={Theme.nav_svg}
+              style={Theme.svg_default}
             />
           ) : (
             <label className='note_label'>

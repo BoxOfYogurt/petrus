@@ -1,0 +1,35 @@
+.task_container {
+  height: 3em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid #68b0abff;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.task_container:first-child {
+  border-top: 1px solid #68b0abff;
+}
+
+/* SVG */
+.task_completed {
+  display: flex;
+  justify-content: center;
+  margin-right: 2em;
+  margin-left: 1em;
+}
+.task_svg {
+  height: var(--svg-size) !important;
+}
+
+/* TEXT */
+.task_title_container {
+  display: flex;
+  justify-content: center;
+}
+.task_title_text {
+  font-family: var(--ff-inter);
+  font-size: 16px;
+  font-weight: 400;
+}

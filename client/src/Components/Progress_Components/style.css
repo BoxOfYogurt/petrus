@@ -1,0 +1,30 @@
+.progress_circle_container {
+  position: relative;
+  height: 12em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle_svg {
+  transform: rotate(90deg);
+}
+.circle_svg > circle {
+  transition: 1000ms ease-out;
+}
+
+.progress_circle_center {
+  position: absolute;
+  height: 3em;
+  width: 3em;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 1000ms ease-out;
+}
+
+.svg_checkicon {
+  height: calc(var(--svg-size) * 1.5) !important;
+  fill: green;
+}

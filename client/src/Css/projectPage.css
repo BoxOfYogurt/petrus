@@ -1,5 +1,5 @@
 .ProjectPage {
-  background-color: red;
   display: grid;
   grid-template-columns: 14em 1fr;
+  overflow-x: hidden;
 }

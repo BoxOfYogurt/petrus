@@ -1,5 +1,8 @@
-import { SubCategoriesInterface } from "../Data";
+import { SubCategoryInterface } from "../Data";
 import { Task } from "./Task";
+
+import "./css/subCategory.css";
+import { useTheme } from "../../Store/useTheme";
 
 export const SubCategory = ({
   categoryId,
@@ -8,15 +11,19 @@ export const SubCategory = ({
 }: {
   categoryId: number;
   projectId: number;
-  subCategory: SubCategoriesInterface;
+  subCategory: SubCategoryInterface;
 }) => {
+  const { Theme } = useTheme();
   return (
     <>
-      <div>
-        <div>
-          <h3>{subCategory.sub_category_title}</h3>
+      <div className='subcategory_container'>
+        <div className='subcategory_header'>
+          <h3 style={Theme.p} className='subcategory_title'>
+            {subCategory.sub_category_title}
+          </h3>
+          <div className='subcategory_svg_container'>{/* svg */}</div>
         </div>
-        <div>
+        <ul className=''>
           {subCategory.tasks.map((task) => (
             <Task
               key={task.id}
@@ -26,7 +33,7 @@ export const SubCategory = ({
               task={task}
             />
           ))}
-        </div>
+        </ul>
       </div>
     </>
   );

@@ -1,4 +1,0 @@
-.listPage {
-  display: grid;
-  grid-template-columns: var(--category-width) 1fr;
-}

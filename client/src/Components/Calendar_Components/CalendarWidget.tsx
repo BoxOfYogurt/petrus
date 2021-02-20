@@ -129,7 +129,7 @@ export const CalendarWidget = () => {
       <section className='cal_arr_inputs'>
         <ArrowLeftIcon
           onClick={() => handleChange("prev")}
-          style={Theme.nav_svg}
+          style={Theme.svg_default}
           className='cal_arrows_svg'
         />
         <h1 className='cal_month_h1' style={Theme.h2}>
@@ -137,7 +137,7 @@ export const CalendarWidget = () => {
         </h1>
         <ArrowRightIcon
           onClick={() => handleChange("next")}
-          style={Theme.nav_svg}
+          style={Theme.svg_default}
           className='cal_arrows_svg'
         />
       </section>
@@ -162,14 +162,13 @@ export const CalendarWidget = () => {
                   day.monthIndex === selected.month
                     ? { color: "black" }
                     : { color: "black", opacity: "0.5" }
-                }
-              >
+                }>
                 <p style={Theme.p} className='dateNumber_p'>
                   {day.dayDate}
                 </p>
                 {day.fullDate.toDateString() === today.toDateString() ? (
                   <SquareIcon
-                    style={Theme.nav_svg}
+                    style={Theme.svg_default}
                     className='today_svg'
                     children={<title />}
                   />

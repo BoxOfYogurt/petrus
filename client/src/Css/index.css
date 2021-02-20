@@ -16,11 +16,17 @@
   --charcoal_1: #262933;
   --charcoal: #454955ff;
   --ghost-white: #f3eff5ff;
-  --ghost-white_1: #bbb8bd;
+
+  --ghost-white_1: #ebe7ee;
   --earth-yellow: #dba159ff;
   --green-sheen: #68b0abff;
   --accent_1: #db5a5a;
   --error-red: #ff1919;
+  --tea-green: #caffd0ff;
+  --powder-blue: #c9e4e7ff;
+  --blue-munsell: #1985a1ff;
+  --steel-blue: #427aa1ff;
+  --raisin-black: #242325ff;
 
   --ff-inter: "Inter", sans-serif;
   --ff-1: "Fira Sans", sans-serif;

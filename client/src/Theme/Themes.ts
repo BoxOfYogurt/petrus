@@ -2,13 +2,14 @@ export enum ThemeAction {
   SET_DARK_THEME = "SET_DARK_THEME",
   SET_LIGHT_THEME = "SET_LIGHT_THEME",
 }
-
 export interface ThemeTypes {
   name: ThemeAction;
   page: { backgroundColor: string };
-  main_nav: { backgroundColor: string };
-  sub_nav: { backgroundColor: string };
-  nav_svg: { fill: string };
+  navigation_primary: { backgroundColor: string };
+  navigation_secondary: { backgroundColor: string };
+  svg_default: { fill: string };
+  svg_remove: { fill: string };
+  svg_stroke: string;
   list_bg: { backgroundColor: string };
   nav_marker: { backgroundColor: string };
   h2: { color: string };
@@ -20,15 +21,28 @@ export interface ThemeTypes {
     textDecoration: string;
     textDecorationColor: string;
   };
-  svg_remove: { fill: string };
 }
+const GlobalColors = {
+  dark_page: "#454955ff",
+  dark_primary: "#0d0a0bff",
+  dark_secondary: "#262933",
+  dark_accent: "#1f2124",
+  dark_highlight: "#68b0abff",
+  dark_text: "",
+  light_primary: "grey",
+  light_secondary: "lightgrey",
+  light_accent: "white",
+  light_highlight: "#dba159ff",
+};
 
 export const DarkTheme = {
   name: ThemeAction.SET_DARK_THEME,
-  page: { backgroundColor: "#262933" },
-  main_nav: { backgroundColor: "#0d0a0bff" },
-  sub_nav: { backgroundColor: "#454955ff" },
-  nav_svg: { fill: "#68b0abff" },
+  page: { backgroundColor: GlobalColors.dark_page },
+  navigation_primary: { backgroundColor: GlobalColors.dark_primary },
+  navigation_secondary: { backgroundColor: GlobalColors.dark_secondary },
+  svg_default: { fill: "#68b0abff" },
+  svg_remove: { fill: "#ff1919" },
+  svg_stroke: GlobalColors.dark_highlight,
   list_bg: { backgroundColor: "#262933" },
   nav_marker: { backgroundColor: "aqua" },
   h2: { color: "#f3eff5ff" },
@@ -40,14 +54,15 @@ export const DarkTheme = {
     textDecoration: "underline",
     textDecorationColor: "#68b0abff",
   },
-  svg_remove: { fill: "#ff1919" },
 };
 export const LightTheme = {
   name: ThemeAction.SET_LIGHT_THEME,
-  page: { backgroundColor: "#bbb8bd" },
-  main_nav: { backgroundColor: "grey" },
-  sub_nav: { backgroundColor: "lightgrey" },
-  nav_svg: { fill: "#dba159ff" },
+  page: { backgroundColor: "#f3eff5ff" },
+  navigation_primary: { backgroundColor: GlobalColors.light_primary },
+  navigation_secondary: { backgroundColor: "#ebe7ee" },
+  svg_default: { fill: "#dba159ff" },
+  svg_remove: { fill: "#ff1919" },
+  svg_stroke: GlobalColors.light_highlight,
   list_bg: { backgroundColor: "#bbb8bd" },
   nav_marker: { backgroundColor: "lightcoral" },
   h2: { color: "#0d0a0bff" },
@@ -59,5 +74,4 @@ export const LightTheme = {
     textDecoration: "underline",
     textDecorationColor: "#dba159ff",
   },
-  svg_remove: { fill: "#ff1919" },
 };

@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { Link, match, useRouteMatch } from "react-router-dom";
 import { FocusInterface } from "../../Pages/ProjectPage";
 import { useTheme } from "../../Store/useTheme";
-import { CategoriesInterface, ProjectsInterface } from "../Data";
+import { CategoryInterface, ProjectInterface } from "../Data";
 
 import { ReactComponent as SquareIcon } from "../../Svg/SquareIcon.svg";
 import { ReactComponent as CaretIcon } from "../../Svg/CaretIcon.svg";
+import { ReactComponent as VerticalDotsIcon } from "../../Svg/VerticalDotsIcon.svg";
 
 import "./css/projectNavigation.css";
 
@@ -13,7 +14,7 @@ export const ProjectNavigation = ({
   categories,
   currentRoute,
 }: {
-  categories: CategoriesInterface[];
+  categories: CategoryInterface[];
   currentRoute: match<{ projectId: string }> | null;
 }) => {
   const { Theme } = useTheme();
@@ -41,7 +42,7 @@ export const ProjectNavigation = ({
     }
   }, [categories, currentRoute]);
   return (
-    <nav style={Theme.sub_nav} className='category_navigation'>
+    <nav style={Theme.navigation_secondary} className='category_navigation'>
       {categories.map((category, idx) => (
         <Category
           key={category.id}
@@ -59,7 +60,7 @@ const Category = ({
   index,
   isFocused,
 }: {
-  category: CategoriesInterface;
+  category: CategoryInterface;
   index: number;
   isFocused: FocusInterface;
 }) => {
@@ -93,8 +94,7 @@ const Category = ({
 
         <h2
           className='category_navigation_title'
-          style={{ color: category.color_code }}
-        >
+          style={{ color: category.color_code }}>
           {category.category_title.toUpperCase()}
         </h2>
         <CategorySettingsWidget
@@ -117,7 +117,7 @@ const ProjectNavigationItem = ({
   project,
   isFocused,
 }: {
-  project: ProjectsInterface;
+  project: ProjectInterface;
   isFocused: FocusInterface;
 }) => {
   const { Theme } = useTheme();
@@ -130,8 +130,7 @@ const ProjectNavigationItem = ({
           style={
             isFocused.project_id === project.id ? Theme.p_highLight : Theme.p
           }
-          className='project_navigation_title'
-        >
+          className='project_navigation_title'>
           {project.project_title}
         </h3>
       </Link>
@@ -149,16 +148,7 @@ const CategorySettingsWidget = ({
   return (
     <>
       <div>
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          viewBox='0 0 24 24'
-          className='setting_navigation_svg'
-        >
-          <title>settings</title>
-          <circle cx='12' cy='2' r='2' />
-          <circle cx='12' cy='12' r='2' />
-          <circle cx='12' cy='22' r='2' />
-        </svg>
+        <VerticalDotsIcon className='setting_navigation_svg' />
       </div>
     </>
   );

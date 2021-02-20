@@ -44,7 +44,7 @@ export const CreateNote = ({
         <section className='note_section note_footer'>
           <label>
             <input type='submit' />
-            <UploadIcon style={Theme.nav_svg} className='note_svg_upload' />
+            <UploadIcon style={Theme.svg_default} className='note_svg_upload' />
           </label>
         </section>
       </form>
