@@ -8,8 +8,8 @@ import { useTheme } from "../Store/useTheme";
 export interface FocusInterface {
   category_idx?: number;
   project_idx?: number;
-  category_id?: number;
-  project_id?: number;
+  category_id?: string;
+  project_id?: string;
 }
 export const ProjectPage = () => {
   const { Theme } = useTheme();

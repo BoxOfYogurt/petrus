@@ -9,8 +9,8 @@ export const SubCategory = ({
   projectId,
   subCategory,
 }: {
-  categoryId: number;
-  projectId: number;
+  categoryId: string;
+  projectId: string;
   subCategory: SubCategoryInterface;
 }) => {
   const { Theme } = useTheme();

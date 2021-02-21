@@ -10,7 +10,7 @@ import { SubCategory } from "./SubCategory";
 import { ProgressCircle } from "../Progress_Components/ProgressCircle";
 
 interface RequiredCategoryInfoInterface {
-  id: number;
+  id: string;
   title: string;
 }
 
@@ -43,7 +43,7 @@ export const Project = ({
   useEffect(() => {
     if (currentRoute) {
       if (currentRoute.params) {
-        let project_id = parseInt(currentRoute.params.projectId);
+        let project_id = currentRoute.params.projectId;
         projectStore.forEach((category, category_index) => {
           let project_index = category.projects.findIndex(
             (elem) => elem.id === project_id

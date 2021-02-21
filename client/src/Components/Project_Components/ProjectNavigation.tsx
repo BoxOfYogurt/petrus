@@ -23,7 +23,7 @@ export const ProjectNavigation = ({
   useEffect(() => {
     if (currentRoute) {
       if (currentRoute.params) {
-        let project_id = parseInt(currentRoute.params.projectId);
+        let project_id = currentRoute.params.projectId;
         categories.forEach((category, category_index) => {
           let project_index = category.projects.findIndex(
             (elem) => elem.id === project_id
@@ -95,7 +95,9 @@ const Category = ({
         <h2
           className='category_navigation_title'
           style={{ color: category.color_code }}>
-          {category.category_title.toUpperCase()}
+          {category.category_title.length > 20
+            ? `${category.category_title.toUpperCase().slice(0, 20)}...`
+            : `${category.category_title.toUpperCase()}`}
         </h2>
         <CategorySettingsWidget
           selected={category.color_code}
@@ -143,11 +145,11 @@ const CategorySettingsWidget = ({
   id,
 }: {
   selected: string;
-  id: number;
+  id: string;
 }) => {
   return (
     <>
-      <div>
+      <div className='category_setting_container'>
         <VerticalDotsIcon className='setting_navigation_svg' />
       </div>
     </>

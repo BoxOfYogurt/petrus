@@ -34,9 +34,13 @@
   margin: 0 1.5em;
 }
 
+.category_setting_container {
+  margin-left: auto;
+}
+
 .setting_navigation_svg {
+  margin-right: 1em;
   height: var(--svg-size) !important;
-  margin-left: 4em;
   opacity: 0.3;
   cursor: pointer;
 }

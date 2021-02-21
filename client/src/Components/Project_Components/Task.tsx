@@ -16,9 +16,9 @@ export const Task = ({
   subCategoryId,
   task,
 }: {
-  categoryId: number;
-  projectId: number;
-  subCategoryId: number;
+  categoryId: string;
+  projectId: string;
+  subCategoryId: string;
   task: TaskInterface;
 }) => {
   const { Theme } = useTheme();

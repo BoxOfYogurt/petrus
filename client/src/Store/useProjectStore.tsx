@@ -23,10 +23,10 @@ export enum ActionType {
 }
 interface ProjectActions {
   type: ActionType;
-  category_id: number;
-  project_id?: number;
-  sub_category_id?: number;
-  task_id?: number;
+  category_id: string;
+  project_id?: string;
+  sub_category_id?: string;
+  task_id?: string;
   category_payload?: CategoryInterface;
   project_payload?: ProjectInterface;
   sub_category_payload?: SubCategoryInterface;
