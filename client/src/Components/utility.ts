@@ -35,6 +35,9 @@ export const checkDateToCurrentWeek = (date: Date): boolean => {
   return true;
 };
 
+// This function must take in a ISOStringDate...
+//...It also takes the complete ProjectStore
+//...returns the tasks that corresponds with the calendar_date
 export const getTasksByDate = (
   calendar_date: string,
   store: CategoryInterface[]
@@ -52,6 +55,5 @@ export const getTasksByDate = (
       });
     });
   });
-  console.log(taskArray);
   return taskArray;
 };
