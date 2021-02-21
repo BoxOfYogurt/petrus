@@ -94,6 +94,10 @@
   position: absolute;
   height: 1.7em;
 }
+.task_dot_svg {
+  position: absolute;
+  align-self: flex-end;
+}
 
 .cal_arrows_svg {
   cursor: pointer;

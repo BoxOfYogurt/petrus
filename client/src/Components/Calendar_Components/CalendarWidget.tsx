@@ -3,7 +3,7 @@ import { useTheme } from "../../Store/useTheme";
 import { getDateToday } from "../utility";
 import { ReactComponent as ArrowLeftIcon } from "../../Svg/ArrowLeftIcon.svg";
 import { ReactComponent as ArrowRightIcon } from "../../Svg/ArrowRightIcon.svg";
-import { ReactComponent as SquareIcon } from "../../Svg/SquareIcon.svg";
+import { CalendarDay } from "./CalendarDay";
 import {
   CalendarConfig,
   DayArray,
@@ -155,25 +155,12 @@ export const CalendarWidget = () => {
           })}
           {calendar.map((day) => {
             return (
-              <div
-                className='calendar_item'
+              <CalendarDay
                 key={day.fullDate.toDateString()}
-                style={
-                  day.monthIndex === selected.month
-                    ? { color: "black" }
-                    : { color: "black", opacity: "0.5" }
-                }>
-                <p style={Theme.p} className='dateNumber_p'>
-                  {day.dayDate}
-                </p>
-                {day.fullDate.toDateString() === today.toDateString() ? (
-                  <SquareIcon
-                    style={Theme.svg_default}
-                    className='today_svg'
-                    children={<title />}
-                  />
-                ) : null}
-              </div>
+                dateItem={day}
+                selected={selected}
+                today={today}
+              />
             );
           })}
         </div>

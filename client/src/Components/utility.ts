@@ -1,3 +1,7 @@
+import { CalendarConfig } from "./Calendar_Components/Calendar_utility";
+import { CategoryInterface, TaskInterface } from "./Data";
+import { Project } from "./Project_Components/Project";
+
 export const getDateToday = () => {
   const day = new Date();
   return new Date(day.getFullYear(), day.getMonth(), day.getDate());
@@ -29,4 +33,25 @@ export const checkDateToCurrentWeek = (date: Date): boolean => {
   const today = getDateToday();
 
   return true;
+};
+
+export const getTasksByDate = (
+  calendar_date: string,
+  store: CategoryInterface[]
+) => {
+  let taskArray: TaskInterface[] = [];
+
+  store.forEach((category) => {
+    category.projects.forEach((project) => {
+      project.sub_categories.forEach((sub_category) => {
+        sub_category.tasks.forEach((task) => {
+          if (task.end_date.split("T")[0] === calendar_date.split("T")[0]) {
+            taskArray = [...taskArray, task];
+          }
+        });
+      });
+    });
+  });
+  console.log(taskArray);
+  return taskArray;
 };

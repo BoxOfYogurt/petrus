@@ -1,3 +1,5 @@
+import { CategoryInterface } from "../Data";
+
 export interface InitialDateProp {
   year: number;
   month: number;
