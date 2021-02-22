@@ -27,9 +27,7 @@ export const ProjectPage = () => {
         <Route exact path={`${path}/createlist`}>
           <h1>CreateList</h1>
         </Route>
-        <Route path={`${path}/:projectId`}>
-          <Project currentRoute={match} />
-        </Route>
+        <Route exact path={`${path}/:projectId`} component={Project} />
       </Switch>
     </div>
   );
