@@ -23,6 +23,15 @@ export interface ThemeTypes {
     textDecoration: string;
     textDecorationColor: string;
   };
+  progressBar_dynamic: {
+    fill: string;
+    borderRadius: string;
+  };
+  progressBar_completed: {
+    fill: string;
+    borderRadius: string;
+  };
+  progressBar_static: { fill: string; borderRadius: string };
 }
 const GlobalColors = {
   dark_page: "#454955ff",
@@ -36,6 +45,7 @@ const GlobalColors = {
   light_accent: "white",
   light_highlight: "#dba159ff",
   error_red: "#ff1919",
+  completed: "#2ce310",
 };
 
 export const DarkTheme = {
@@ -59,6 +69,18 @@ export const DarkTheme = {
     textDecoration: "underline",
     textDecorationColor: "#68b0abff",
   },
+  progressBar_dynamic: {
+    fill: GlobalColors.dark_highlight,
+    borderRadius: "50%",
+  },
+  progressBar_completed: {
+    fill: GlobalColors.completed,
+    borderRadius: "50%",
+  },
+  progressBar_static: {
+    fill: GlobalColors.dark_secondary,
+    borderRadius: "50%",
+  },
 };
 export const LightTheme = {
   name: ThemeAction.SET_LIGHT_THEME,
@@ -80,5 +102,17 @@ export const LightTheme = {
     color: "#0d0a0bff",
     textDecoration: "underline",
     textDecorationColor: "#dba159ff",
+  },
+  progressBar_dynamic: {
+    fill: GlobalColors.light_highlight,
+    borderRadius: "50%",
+  },
+  progressBar_completed: {
+    fill: GlobalColors.completed,
+    borderRadius: "50%",
+  },
+  progressBar_static: {
+    fill: GlobalColors.light_secondary,
+    borderRadius: "50%",
   },
 };

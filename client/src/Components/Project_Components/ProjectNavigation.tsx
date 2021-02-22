@@ -7,8 +7,10 @@ import { CategoryInterface, ProjectInterface } from "../Data";
 import { ReactComponent as SquareIcon } from "../../Svg/SquareIcon.svg";
 import { ReactComponent as CaretIcon } from "../../Svg/CaretIcon.svg";
 import { ReactComponent as VerticalDotsIcon } from "../../Svg/VerticalDotsIcon.svg";
-
+import { SettingModule } from "../../Widgets/SettingsModule";
 import "./css/projectNavigation.css";
+import { useToggle } from "../../Hooks/useToggle";
+import { useProjectStore } from "../../Store/useProjectStore";
 
 export const ProjectNavigation = ({
   categories,
@@ -64,11 +66,16 @@ const Category = ({
   index: number;
   isFocused: FocusInterface;
 }) => {
+  const { switchValue, handleSwitch } = useToggle(false);
+  const { projectDispatch } = useProjectStore();
   const [caretPos, setCatetPos] = useState({
     top: "0.5em",
     transform: "rotate(90deg)",
   });
 
+  const handleChange = (id: string) => {};
+
+  const handleDelete = (id: string) => {};
   useEffect(() => {
     if (isFocused.category_idx === index) {
       if (isFocused.project_idx !== undefined) {
@@ -87,22 +94,36 @@ const Category = ({
         style={caretPos}
       />
       <li className='category_navigation_header_container'>
-        <SquareIcon
-          className='category_navigation_svg'
-          fill={category.color_code}
-        />
-
-        <h2
-          className='category_navigation_title'
-          style={{ color: category.color_code }}>
-          {category.category_title.length > 20
-            ? `${category.category_title.toUpperCase().slice(0, 20)}...`
-            : `${category.category_title.toUpperCase()}`}
-        </h2>
-        <CategorySettingsWidget
-          selected={category.color_code}
-          id={category.id}
-        />
+        <div className='category_navigation_header_item'>
+          <SquareIcon
+            className='category_navigation_svg'
+            fill={category.color_code}
+          />
+        </div>
+        <div className='category_navigation_header_item'>
+          <h2
+            className='category_navigation_title'
+            style={{ color: category.color_code }}>
+            {category.category_title.length > 20
+              ? `${category.category_title.toUpperCase().slice(0, 20)}...`
+              : `${category.category_title.toUpperCase()}`}
+          </h2>
+        </div>
+        <div className='category_navigation_header_item'>
+          <VerticalDotsIcon
+            className='setting_navigation_svg'
+            onClick={() => handleSwitch(!switchValue)}
+          />
+          {switchValue && (
+            <SettingModule
+              options={[
+                { text: "Rename...", handleOption: handleChange },
+                { text: "Delete...", handleOption: handleDelete },
+              ]}
+              id={category.id}
+            />
+          )}
+        </div>
       </li>
       {category.projects.map((project) => (
         <ProjectNavigationItem

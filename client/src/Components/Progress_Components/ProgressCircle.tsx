@@ -3,14 +3,7 @@ import { TaskInterface } from "../Data";
 import "./style.css";
 import { useEffect, useState } from "react";
 import { ReactComponent as CheckIcon } from "../../Svg/CheckIcon.svg";
-import { calculateProgress } from "./utility";
-
-interface ProgressInterface {
-  total: number;
-  completed: number;
-  percent: number;
-  done: boolean | undefined | null;
-}
+import { calculateProgress, ProgressInterface } from "./utility";
 
 export const ProgressCircle = ({
   data,
@@ -23,12 +16,9 @@ export const ProgressCircle = ({
 }) => {
   const radius = size / 2 - strokeSize / 2;
   const circumference = 2 * Math.PI * radius;
-  const [progress, setProgress] = useState<ProgressInterface>({
-    total: 0,
-    completed: 0,
-    percent: 0,
-    done: undefined,
-  });
+  const [progress, setProgress] = useState<ProgressInterface>(() =>
+    calculateProgress({ data })
+  );
   const [offset, setOffset] = useState<number>(0);
   const { Theme } = useTheme();
 
@@ -53,26 +43,30 @@ export const ProgressCircle = ({
 
   return (
     <>
-      <div className='progress_circle_container'>
+      <div className='progress_circle_container' style={{ height: size }}>
         {progress.percent === 100 ? (
           <div
             className='progress_circle_center'
-            style={Theme.navigation_secondary}>
+            style={{
+              ...Theme.navigation_secondary,
+              height: size / 3,
+              width: size / 3,
+              borderRadius: "50%",
+            }}>
             <CheckIcon className='svg_checkicon' />
           </div>
         ) : null}
-        <svg className='circle_svg' width={size} height={size}>
+        <svg width={size} height={size}>
           <circle
-            className='circle_static'
             fill={"transparent"}
             strokeOpacity={0.5}
             strokeWidth={strokeSize}
             stroke={Theme.svg_stroke}
             cx={size / 2}
             cy={size / 2}
-            r={radius}></circle>
+            r={radius}
+          />
           <circle
-            className='circle_dynamic'
             fill={"transparent"}
             strokeWidth={strokeSize}
             stroke={`hsl(120,100%, ${100 - progress.percent / 2}%)`}
@@ -80,9 +74,8 @@ export const ProgressCircle = ({
             cy={size / 2}
             r={radius}
             strokeDashoffset={offset}
-            strokeDasharray={circumference}>
-            <title>ForeGround</title>
-          </circle>
+            strokeDasharray={circumference}
+          />
         </svg>
       </div>
     </>

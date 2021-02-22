@@ -471,7 +471,7 @@ export const Data: CategoryInterface[] = [
         sub_categories: [
           {
             id: "52976fbc-f61e-497f-93bc-388d9fb402c0",
-            sub_category_title: "Marketing",
+            sub_category_title: "Design",
             tasks: [
               {
                 id: "a4c48cd8-e5c2-417c-85b7-58c8b9db7e37",

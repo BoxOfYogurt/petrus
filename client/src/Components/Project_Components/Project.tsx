@@ -89,6 +89,7 @@ export const Project = ({
                   categoryId={categoryInfo.id}
                   projectId={currentProject.id}
                   subCategory={subCategory}
+                  tasks={subCategory.tasks}
                 />
               ))}
             </div>

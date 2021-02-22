@@ -1,30 +1,64 @@
+/* 
+================================
+Css for Progress Components
+================================
+ProgressCircle
+================================
+ */
 .progress_circle_container {
+  margin: 1em;
   position: relative;
-  height: 12em;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-.circle_svg {
-  transform: rotate(90deg);
-}
-.circle_svg > circle {
-  transition: 1000ms ease-out;
-}
-
 .progress_circle_center {
   position: absolute;
-  height: 3em;
-  width: 3em;
-  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: 1000ms ease-out;
 }
 
+.progress_circle_container > svg {
+  transform: rotate(90deg);
+}
+.progress_circle_container > svg > circle:first-child {
+  transition-property: stroke;
+  transition: 200ms;
+}
+.progress_circle_container > svg > circle:last-child {
+  transition-property: stroke;
+  transition: 800ms;
+}
+/* 
+================================
+ProgressCircle --> SVG ICON 
+================================
+*/
 .svg_checkicon {
   height: calc(var(--svg-size) * 1.5) !important;
   fill: green;
+}
+
+/* 
+================================
+ProgressBar
+================================
+ */
+
+.progress_bar_container {
+  display: flex;
+  align-items: center;
+}
+.progress_bar_container > svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.progress_bar_container > svg > rect:first-child {
+  transition-property: fill;
+  transition: 200ms ease-out;
+}
+.progress_bar_container > svg > rect:last-child {
+  transition: width 800ms ease-out, fill 200ms ease-out;
 }

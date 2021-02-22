@@ -7,7 +7,6 @@ import { ReactComponent as SquareIcon } from "../../Svg/SquareIcon.svg";
 import { useTheme } from "../../Store/useTheme";
 import { useProjectStore } from "../../Store/useProjectStore";
 import { ActionType } from "../../Store/useProjectStore";
-import { useToggle } from "../../Hooks/useToggle";
 import { DeadlineWidget } from "../../Widgets/DeadlineWidget";
 
 export const Task = ({
@@ -24,13 +23,14 @@ export const Task = ({
   const { Theme } = useTheme();
   const { projectDispatch } = useProjectStore();
   const [currentTask, setCurrentTask] = useState<TaskInterface>(task);
-  const { switchValue, handleSwitch } = useToggle(false);
 
-  const handleCompleted = () => {
-    // console.log("before ", currentTask.completed);
-    setCurrentTask({ ...currentTask, completed: !currentTask.completed });
-    // console.log("after ", currentTask.completed);
-    //Make a call to the Db with the new Data,
+  const handleCompleted = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    setCurrentTask({
+      ...currentTask,
+      completed: !currentTask.completed,
+    });
   };
 
   useEffect(() => {
@@ -47,7 +47,9 @@ export const Task = ({
   return (
     <>
       <li style={Theme.border_color} className='task_container'>
-        <div className='task_completed' onClick={handleCompleted}>
+        <div
+          className='task_completed'
+          onClick={(event) => handleCompleted(event)}>
           {currentTask.completed ? (
             <CheckBoxIcon className='task_svg' />
           ) : (
