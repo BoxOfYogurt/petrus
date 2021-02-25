@@ -43,20 +43,23 @@ Should be easy to organize projects in categories --> and tasks in subcategories
 - - PostgreSQL
 
 ### Structure
-
-- **Categories** []
-- Customizable Color code for easy recognizion.
-
-- - **Projects** []
-- - Progress Circle for each Project
-
-- - - **Sub-categories** []
-- - - Progress Bar for each sub category
-
-- - - - **Tasks** []
-- - - - - Deadline
-- - - - - Importance
-- - - - - Tag?
-
-- **Notes** []
-- ...Notes for quick and easy reminders
+```
++-- USERS []
+      +
+      +-- CATEGORIES []
+      |       |
+      |       +-- Customizable Color-code for easy recognizion.
+      |       +-- PROJECTS []
+      |               |
+      |               +-- Progress Circle for each Project.
+      |               +-- SUB-CATEGORIES []
+      |                       |
+      |                       +--TASKS []
+      |                             |
+      |                             +-- deadline
+      |                             +-- importance
+      |                             +-- tag?
+      +-- NOTES []
+              |
+              +-- Notes for quick and easy reminders.
+```
