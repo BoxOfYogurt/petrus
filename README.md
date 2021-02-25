@@ -1,74 +1,62 @@
 # PETRUS
 
-> a task manager app for managing schedule plans to large projects
+## **Brief introduction...**
 
-## DATABASE TABLES
+This app is considered as a **hobbyproject**.
+I am doing this purely out of interest and fun,
+but most important as a **learning experience**.
 
-- [ ] USERS
-- [ ] LISTS
-- [ ] TASKS
+###
 
-## FIELDS
+**A TaskManager App.**
+The application should be easy to navigate.
+Should be easy to organize projects in categories --> and tasks in subcategories.
+...Notes for quick and easy reminders
 
-### USER
+## Personal goals:
 
-- USERNAME
-- PASSWORD
-- COLOR
-- ROLE ? > NOT SURE IF NEEDED
-- CATEGORIESS[]
-- THEME: | DARK | LIGHT
+- Learn how to use the Context API...For global/shared state.
+- Hooks...
+- Custom Hooks
+- Display correct data
+- jsonwebtoken/auth/refresh
+- Make it beautiful/modern/minimalistic/intuitiv
 
-## CATEGORY
+## Project overview:
 
-- OWNER
-- COLOR
-- CATEGORY_NAME
-- STATUS: | UNCOMPLETED | COMPLETED
-- STYLE: | GEN | ADVANCED
-- LISTS[]
+### Technologies:
 
-### LIST FIELDS
+- FRONTEND:
 
-- TITLE
-- DESCRIPTION
-- CATEGORY
-- OWNER
-- TASKS[]
+- - TypeScript
+- - React
+- - Apollo-Client
+- - Graphql
 
-### TASK
+- BACKEND:
 
-- OWNER
-- TASK_STATUS: | IMPORTANT | WAITING | CANCELED | FINISHED
-- DUE_DATE
+- - TypeScript
+- - Express
+- - Apollo-Server
+- - Graphql
+- - TypeOrm / Mikro-Orm ??
+- - PostgreSQL
 
-### PROJECT STRUCTURE
+### Structure
 
-```
-export interface TaskInterface {
-  id: number;
-  task_title: string;
-  task_description: string;
-  completed: boolean;
-  status_level: StatusLevel;
-  end_date: Date;
-  start_date: Date;
-}
-export interface SubCategoriesInterface {
-  id: number;
-  sub_category_title: string;
-  tasks: TaskInterface[];
-}
-export interface ProjectsInterface {
-  id: number;
-  project_title: string;
-  sub_categories: SubCategoriesInterface[];
-}
-export interface CategoriesInterface {
-  id: number;
-  color_code: string;
-  category_title: string;
-  projects: ProjectsInterface[];
-}
+- **Categories** []
+- Customizable Color code for easy recognizion.
 
-```
+- - **Projects** []
+- - Progress Circle for each Project
+
+- - - **Sub-categories** []
+- - - Progress Bar for each sub category
+
+- - - - **Tasks** []
+- - - - - Deadline
+- - - - - Importance
+- - - - - Tag?
+
+- **Notes** []
+- ...Notes for quick and easy reminders
