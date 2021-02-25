@@ -43,6 +43,7 @@ Should be easy to organize projects in categories --> and tasks in subcategories
 - - PostgreSQL
 
 ### Structure
+
 ```
 +-- USERS []
       +
@@ -63,3 +64,7 @@ Should be easy to organize projects in categories --> and tasks in subcategories
               |
               +-- Notes for quick and easy reminders.
 ```
+
+### Credit
+
+_Icons/SVG from FlatIcon.com_
