@@ -29,6 +29,7 @@ interface RouteComponentMatch {
 
 export const Project: React.FC<RouteComponentProps<RouteComponentMatch>> = ({
 	match,
+	history,
 }) => {
 	const { Theme } = useTheme();
 	const { projectStore } = useProjectStore();
@@ -60,28 +61,39 @@ export const Project: React.FC<RouteComponentProps<RouteComponentMatch>> = ({
 	useEffect(() => {
 		if (match.params) {
 			let project_id = match.params.projectId;
-			projectStore.forEach((category) => {
-				let project_index = category.projects.findIndex(
-					(elem) => elem.id === project_id
-				);
-				if (project_index !== -1) {
-					setCategoryInfo({
-						id: category.id,
-						title: category.category_title,
-					});
-					setCurrentProject(category.projects[project_index]);
-					let variableArray: TaskInterface[] = [];
-					//prettier-ignore
-					category.projects[project_index].sub_categories.forEach((sub_category) =>
-            sub_category.tasks.forEach((task) =>
-              (variableArray = [...variableArray, task])
-            )
-          );
-					setTaskArray(variableArray);
+			if (projectStore.length > 0) {
+				let doesExist = false;
+				projectStore.forEach((category) => {
+					let project_index = category.projects.findIndex(
+						(elem) => elem.id === project_id
+					);
+					if (project_index !== -1) {
+						doesExist = true;
+						setCategoryInfo({
+							id: category.id,
+							title: category.category_title,
+						});
+						setCurrentProject(category.projects[project_index]);
+						let variableArray: TaskInterface[] = [];
+
+						category.projects[
+							project_index
+						].sub_categories.forEach((sub_category) =>
+							sub_category.tasks.forEach(
+								(task) => (variableArray = [...variableArray, task])
+							)
+						);
+						setTaskArray(variableArray);
+					}
+				});
+				if (!doesExist) {
+					history.replace("/project");
 				}
-			});
+			} else {
+				history.replace("/project");
+			}
 		}
-	}, [match, projectStore]);
+	}, [match, projectStore, history]);
 
 	return (
 		<>
