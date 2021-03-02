@@ -1,105 +1,111 @@
 .calendarPage {
-  display: grid;
-  grid-template-columns: 25em 1fr;
+	display: grid;
+	grid-template-columns: 25em 1fr;
 }
 .cal_navigation_container {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  user-select: none;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	user-select: none;
 }
 /* CALENDAR WIDGET CONTAINER ----PARENT  */
 .cal_arr_container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
+	position: relative;
+	display: flex;
+	flex-direction: column;
 }
 
 /* INPUTS FIRST SECTION */
 .cal_arr_inputs {
-  position: relative;
-  width: 100%;
-  height: 3em;
-  margin-top: 3em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	position: relative;
+	width: 100%;
+	height: 3em;
+	margin-top: 3em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.cal_arr_text {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
 }
 .cal_month_h1 {
-  font-size: 21px;
-  font-weight: 500;
-  font-family: var(--ff-4);
-  width: 8em;
-  text-align: center;
+	font-size: 21px;
+	font-weight: 500;
+	font-family: var(--ff-4);
+	width: 8em;
+	text-align: center;
 }
+
+.cal_year_p {
+	position: absolute;
+	font-size: 12px;
+	top: 3em;
+	font-family: var(--ff-4);
+	width: 8em;
+	text-align: center;
+}
+
 .cal_month_h1:hover {
-  cursor: default;
+	cursor: default;
 }
 /* DAY NAME ARRAY SECTION SECOND CHILD  CHILDS : DAY ARRAY, CALENDAR ARRAY*/
 .cal_arr_section {
-  position: relative;
-  width: 21em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	position: relative;
+	width: 21em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .calendar_Array {
-  width: 100%;
-  height: 100%;
-  margin: 1em;
-  display: grid;
+	width: 100%;
+	height: 100%;
+	margin: 1em;
+	display: grid;
 
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(7, 1fr);
-  align-items: center;
-  justify-content: center;
+	grid-template-columns: repeat(7, 1fr);
+	grid-template-rows: repeat(7, 1fr);
+	align-items: center;
+	justify-content: center;
 }
 
 .calendar_item {
-  position: relative;
-  display: flex;
-  height: 2.3em;
-  align-items: center;
-  justify-content: center;
+	position: relative;
+	display: flex;
+	height: 2.3em;
+	align-items: center;
+	justify-content: center;
 }
 /* ---------- */
 
 .daycontainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
-.dateNumber_p {
-  font-size: 12px;
-  font-family: var(--ff-2);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50px;
-  height: 1.7em;
-  width: 1.7em;
-}
-
+.dateNumber_p,
 .dateName_p {
-  font-family: var(--ff-2);
-  font-size: 12px;
+	font-size: 12px;
+	font-family: var(--ff-2);
 }
 
 .today_svg {
-  position: absolute;
-  height: 1.7em;
+	position: absolute;
+	height: 1.5em;
 }
 .task_dot_svg {
-  position: absolute;
-  align-self: flex-end;
+	position: absolute;
+	align-self: flex-end;
 }
 
 .cal_arrows_svg {
-  cursor: pointer;
-  height: var(--svg-size) !important;
+	cursor: pointer;
+	height: var(--svg-size) !important;
 }

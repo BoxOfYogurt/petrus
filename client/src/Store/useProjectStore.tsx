@@ -1,5 +1,4 @@
-import { resourceUsage } from "process";
-import React, { createContext, useContext, useEffect, useReducer } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 import {
 	Data,
 	CategoryInterface,

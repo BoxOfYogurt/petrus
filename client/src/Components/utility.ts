@@ -8,6 +8,11 @@ export const getDateToday = () => {
 	return new Date(day.getFullYear(), day.getMonth(), day.getDate());
 };
 
+export const getIsoDateToday = () => {
+	let day = getDateToday();
+	return day.toISOString();
+};
+
 export const getCurrentWeek = () => {
 	const today = getDateToday();
 	const startOfWeekDate = new Date(
@@ -39,18 +44,38 @@ export const checkDateToCurrentWeek = (date: Date): boolean => {
 // This function must take in a ISOStringDate...
 //...It also takes the complete ProjectStore
 //...returns the tasks that corresponds with the calendar_date
+interface parentsInterface {
+	category_id: string;
+	category_title: string;
+	project_id: string;
+	project_title: string;
+	sub_category_id: string;
+	sub_category_title: string;
+}
+export interface TaskArrayWithAdditionalInfo
+	extends TaskInterface,
+		parentsInterface {}
 export const getTasksByDate = (
 	calendar_date: string,
 	store: CategoryInterface[]
 ) => {
-	let taskArray: TaskInterface[] = [];
+	let taskArray: TaskArrayWithAdditionalInfo[] = [];
 
 	store.forEach((category) => {
 		category.projects.forEach((project) => {
 			project.sub_categories.forEach((sub_category) => {
 				sub_category.tasks.forEach((task) => {
-					if (task.end_date.split("T")[0] === calendar_date.split("T")[0]) {
-						taskArray = [...taskArray, task];
+					if (task.end_date.split("T")[0] === calendar_date) {
+						let dateTask = task;
+						let parentKeys = {
+							category_id: category.id,
+							category_title: category.category_title,
+							project_id: project.id,
+							project_title: project.project_title,
+							sub_category_id: sub_category.id,
+							sub_category_title: sub_category.sub_category_title,
+						};
+						taskArray = [...taskArray, { ...dateTask, ...parentKeys }];
 					}
 				});
 			});
