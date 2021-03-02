@@ -6,53 +6,60 @@ import {
 	BaseEntity,
 	OneToMany,
 	CreateDateColumn,
+	ManyToOne,
+	JoinColumn,
 	UpdateDateColumn,
 } from "typeorm";
 import { Category } from "./Category";
-import { Note } from "./Note";
-import { Project } from "./Project";
 import { Subcategory } from "./Subcategory";
-import { Task } from "./Task";
+import { User } from "./User";
 
 @ObjectType()
-@Entity({ name: "users" })
-export class User extends BaseEntity {
+@Entity({ name: "projects" })
+export class Project extends BaseEntity {
 	//=====================| IDENTIFIER / ID |=====================|
 
 	@Field(() => ID)
 	@PrimaryGeneratedColumn("uuid")
-	readonly_id: string;
+	readonly_id!: string;
 
 	//=====================| UNIQUE FIELDS |=====================|
 
 	/* USERNAME  */
 	@Field()
 	@Column("text")
-	username: string;
+	project_title: string;
 
-	/* PASSWORD  */
+	@Field()
 	@Column("text")
-	password: string;
+	project_description: string;
 
 	//=====================| RELATIONS |=====================|
-
-	@OneToMany(() => Category, (category: Category) => category.user, {
-		cascade: true,
+	//<----- USER
+	@ManyToOne(() => User, (user: User) => user.projects, {
 		lazy: true,
+		onDelete: "CASCADE",
+		onUpdate: "NO ACTION",
 	})
-	@Field(() => [Category])
-	categories: Category[];
+	@JoinColumn({ name: "user_id" })
+	@Field(() => User)
+	user: User;
 
-	@OneToMany(() => Project, (project: Project) => project.user, {
-		cascade: true,
+	//<----- CATEGORIES
+	@ManyToOne(() => Category, (category: Category) => category.projects, {
 		lazy: true,
+		onDelete: "CASCADE",
+		onUpdate: "NO ACTION",
 	})
-	@Field(() => [Project])
-	projects: Project[];
+	@JoinColumn({ name: "category_id" })
+	@Field(() => Category)
+	category: Category;
+
+	//------> SUBCATEGORIES
 
 	@OneToMany(
 		() => Subcategory,
-		(subcategory: Subcategory) => subcategory.user,
+		(subcategory: Subcategory) => subcategory.project,
 		{
 			cascade: true,
 			lazy: true,
@@ -60,20 +67,6 @@ export class User extends BaseEntity {
 	)
 	@Field(() => [Subcategory])
 	subcategories: Subcategory[];
-
-	@OneToMany(() => Task, (task: Task) => task.user, {
-		cascade: true,
-		lazy: true,
-	})
-	@Field(() => [Task])
-	tasks: Task[];
-
-	@OneToMany(() => Note, (note: Note) => note.user, {
-		cascade: true,
-		lazy: true,
-	})
-	@Field(() => [Note])
-	notes: Note[];
 
 	//=====================| TIMESTAMPS |=====================|
 
