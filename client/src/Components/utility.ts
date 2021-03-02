@@ -56,7 +56,7 @@ export interface TaskArrayWithAdditionalInfo
 	extends TaskInterface,
 		parentsInterface {}
 export const getTasksByDate = (
-	calendar_date: string,
+	calendar_date: Date,
 	store: CategoryInterface[]
 ) => {
 	let taskArray: TaskArrayWithAdditionalInfo[] = [];
@@ -65,7 +65,10 @@ export const getTasksByDate = (
 		category.projects.forEach((project) => {
 			project.sub_categories.forEach((sub_category) => {
 				sub_category.tasks.forEach((task) => {
-					if (task.end_date.split("T")[0] === calendar_date) {
+					if (
+						task.end_date.split("T")[0] ===
+						calendar_date.toISOString().split("T")[0]
+					) {
 						let dateTask = task;
 						let parentKeys = {
 							category_id: category.id,

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { RouteComponentProps } from "react-router-dom";
 import { useProjectStore } from "../../Store/useProjectStore";
-import { TaskInterface } from "../Data";
 import { getTasksByDate, TaskArrayWithAdditionalInfo } from "../utility";
 
 interface Props {
@@ -16,7 +15,10 @@ export const CalendarTasks: React.FC<RouteComponentProps<Props>> = ({
 
 	useEffect(() => {
 		if (match) {
-			setTaskArray(getTasksByDate(match.params.date, projectStore));
+			let newDate = new Date(match.params.date);
+
+			console.log(newDate);
+			setTaskArray(getTasksByDate(newDate, projectStore));
 		}
 	}, [match, projectStore]);
 	return (
@@ -24,7 +26,7 @@ export const CalendarTasks: React.FC<RouteComponentProps<Props>> = ({
 			{taskArray.map((task) => {
 				return (
 					<div key={task.id}>
-						<h1>{task.task_title}</h1>
+						<h1>{task.id}</h1>
 					</div>
 				);
 			})}

@@ -7,7 +7,6 @@ import { CalendarConfig, InitialDateProp } from "./Calendar_utility";
 
 import { ReactComponent as SquareIcon } from "../../Svg/SquareIcon.svg";
 import { useHistory, useRouteMatch } from "react-router-dom";
-import moment from "moment";
 
 interface Props {
 	date: string;
@@ -29,18 +28,29 @@ export const CalendarDay = ({
 	let history = useHistory();
 	let { path } = useRouteMatch();
 	let match = useRouteMatch<{ date: string }>(`${path}/:date`);
-	let formatedDate = moment(dateItem.fullDate).format("YYYY-MM-DD");
 
 	const viewTasks = (e: React.MouseEvent<HTMLDivElement>) => {
-		console.log(formatedDate);
-		history.push(`${path}/${formatedDate}`);
+		console.log(dateItem);
+
+		history.push(
+			`${path}/${dateItem.year}-${dateItem.monthIndex}-${dateItem.dayDate}`
+		);
 	};
 
 	useEffect(() => {
-		if (dateItem) {
-			setTaskArray(getTasksByDate(formatedDate, projectStore));
+		if (today.toDateString() === dateItem.fullDate.toDateString()) {
+			console.log(dateItem.fullDate.toISOString());
+			console.log(
+				projectStore[0].projects[0].sub_categories[0].tasks[0].end_date
+			);
 		}
-	}, [projectStore, dateItem, formatedDate]);
+		setTaskArray(getTasksByDate(dateItem.fullDate, projectStore));
+	}, [projectStore, dateItem, today]);
+	// useEffect(() => {
+	// 	if (dateItem) {
+	// 		setTaskArray(getTasksByDate(formatedDate, projectStore));
+	// 	}
+	// }, [projectStore, dateItem, formatedDate]);
 
 	return (
 		<>
@@ -59,9 +69,11 @@ export const CalendarDay = ({
 				{dateItem.fullDate.toDateString() === today.toDateString() ? (
 					<SquareIcon style={Theme.svg_default} className='today_svg' />
 				) : null}
-				{match?.params.date === formatedDate && (
-					<SquareIcon style={Theme.svg_remove} className='today_svg' />
-				)}
+				{match?.params.date ===
+					`${dateItem.year}-${dateItem.monthIndex}-${dateItem.dayDate}` &&
+					TaskArray.length > 0 && (
+						<SquareIcon style={Theme.svg_remove} className='today_svg' />
+					)}
 				{TaskArray.length > 0 && (
 					<Circle css='task_dot_svg' size={3} fill={Theme.svg_default} />
 				)}

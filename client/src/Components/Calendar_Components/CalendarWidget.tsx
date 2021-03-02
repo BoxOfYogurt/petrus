@@ -11,7 +11,6 @@ import {
 	MonthArray,
 	MonthsInterface,
 } from "./Calendar_utility";
-import { useRouteMatch } from "react-router-dom";
 
 const createCalendarArray = ({ year, month }: InitialDateProp) => {
 	let monthArray: CalendarConfig[] = [];
